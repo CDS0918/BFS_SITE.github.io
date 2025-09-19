@@ -19,6 +19,7 @@
       padding: 1rem;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      position: relative;
     }
     h1 {
       font-weight: 600;
@@ -29,10 +30,22 @@
       user-select: none;
       text-shadow: none;
     }
+    .corner-text {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.3);
+      user-select: none;
+      font-weight: 400;
+      font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
   <h1 role="heading" aria-level="1">THE FUTURE IS BRIGHT</h1>
+  <div class="corner-text">BFS Automation</div>
 </body>
 </html>
 
