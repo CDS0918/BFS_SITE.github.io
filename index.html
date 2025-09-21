@@ -29,17 +29,19 @@
 <body class="bg-gray-100 text-gray-800 leading-relaxed">
 
     <!-- Header & Navigation -->
-    <header class="bg-dark-blue text-white shadow-lg sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#hero" class="flex items-center space-x-2">
-                <img src="BFS_NOGLOW.png" alt="BFS Automation Logo" class="h-10 w-auto rounded-full shadow-md" />
+    <header class="bg-dark-blue text-white shadow-lg sticky top-0 z-50" style="height: 96px; position: relative;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(90deg, #1e3a8a 70%, #355dc0 100%); opacity: 0.7; z-index: 1;"></div>
+        <div class="container mx-auto px-6 py-0 flex items-center justify-between relative" style="height: 96px; z-index: 2;">
+            <a href="#hero" class="flex items-center" style="height: 100%;">
+                <img src="BFS_NOGLOW.png" alt="BFS Automation Logo" style="height: 80px; width: auto; border-radius: 50%; box-shadow: 0 6px 16px rgba(0,0,0,0.18);" />
             </a>
-            <div class="space-x-4">
-                <a href="#about" class="hover:text-bright-gold transition-colors duration-300">About</a>
-                <a href="#industries" class="hover:text-bright-gold transition-colors duration-300">Industries</a>
-                <a href="#contact" class="hover:text-bright-gold transition-colors duration-300">Contact</a>
+            <div class="space-x-8 flex items-center h-full">
+                <a href="#about" class="hover:text-bright-gold transition-colors duration-300 text-lg font-semibold border-r border-gray-400 pr-4">About</a>
+                <a href="#industries" class="hover:text-bright-gold transition-colors duration-300 text-lg font-semibold border-r border-gray-400 px-4">Industries</a>
+                <a href="#contact" class="hover:text-bright-gold transition-colors duration-300 text-lg font-semibold pl-4">Contact</a>
             </div>
-        </nav>
+        </div>
+        <div style="height: 8px; background: linear-gradient(90deg, #F4D03F 0%, #f3b300 100%); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"></div>
     </header>
 
     <!-- Hero Section -->
@@ -130,4 +132,5 @@
 
 </body>
 </html>
+
 
