@@ -45,18 +45,7 @@
         padding: 0 1.5rem;
       }
     }
-    .hero-box {
-      background: #1e3a8a;
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(30,58,138,0.17), 0 1.5px 6px rgba(51,58,120,0.12);
-      padding: 3rem 2rem;
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 0.95;
-    }
-    .gold-accent {
-      color: #F4D03F;
-    }
+
     .hero-bg {
       background-image: url('Bkgrnd.png');
       background-size: cover;
@@ -75,22 +64,21 @@
       background: rgba(36,49,99,0.23);
       z-index: 1;
     }
-    .hero-content {
+
+    .hero-box {
       position: relative;
       z-index: 2;
-      width: 100%;
+      max-width: 700px;
+      padding: 2.25rem 1.25rem;
+      border-radius: 20px;
+      background: #1e3a8a;
+      box-shadow: 0 8px 32px rgba(30,58,138,0.17), 0 1.5px 6px rgba(51,58,120,0.12);
+      opacity: 0.95;
+      text-align: center;
+      color: white;
     }
-    .text-dark-blue {
-      color: #1e3a8a;
-    }
-    .text-bright-gold {
+    .gold-accent {
       color: #F4D03F;
-    }
-    .bg-bright-gold {
-      background-color: #F4D03F;
-    }
-    .hover\:bg-yellow-300:hover {
-      background-color: #fcd34d;
     }
   </style>
 </head>
@@ -113,11 +101,13 @@
 
   <!-- Hero Section -->
   <section id="hero" class="hero-bg" role="banner" aria-label="Hero Section">
-    <div class="hero-content">
-      <div class="hero-box text-center text-white">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4 gold-accent">Custom Automation Solutions</h1>
-        <p class="text-xl md:text-2xl italic font-light mb-8">"The Future Is Bright"</p>
-      </div>
+    <div class="hero-box">
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 gold-accent leading-tight">
+        Custom Automation Solutions
+      </h1>
+      <p class="text-lg md:text-2xl italic font-light">
+        "The Future Is Bright"
+      </p>
     </div>
   </section>
 
@@ -180,4 +170,5 @@
 
 </body>
 </html>
+
 
