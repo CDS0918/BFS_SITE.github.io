@@ -1,168 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>BFS Automation</title>
-    <link rel="icon" href="https://placehold.co/32x32/1e3a8a/F4D03F?text=BFS" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-        }
-        .bg-bfs-nav {
-            background-color: #1e3a8a; /* Unified dark blue */
-            display: flex;
-            align-items: center;
-            height: 96px;
-            position: relative;
-            z-index: 50;
-        }
-        .logo-bg {
-            background-color: white;
-            padding: 0 1rem;
-            display: flex;
-            align-items: center;
-            height: 96px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-            z-index: 51;
-        }
-        .hero-box {
-            background: #1e3a8a;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(30,58,138,0.17), 0 1.5px 6px rgba(51,58,120,0.12);
-            padding: 3rem 2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0.95;
-        }
-        .gold-accent {
-            color: #F4D03F;
-        }
-        .hero-bg {
-            background-image: url('Bkgrnd.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .hero-bg:after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(36,49,99,0.23);
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-        }
-        /* Colors for text */
-        .text-dark-blue {
-            color: #1e3a8a;
-        }
-        .text-bright-gold {
-            color: #F4D03F;
-        }
-        /* Button color enhancements */
-        .bg-bright-gold {
-            background-color: #F4D03F;
-        }
-        .hover\:bg-yellow-300:hover {
-            background-color: #fcd34d;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BFS Automation</title>
+  <link rel="icon" href="https://placehold.co/32x32/1e3a8a/F4D03F?text=BFS" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f3f4f6;
+    }
+    .bg-bfs-nav {
+      background-color: #1e3a8a;
+      display: flex;
+      align-items: center;
+      min-height: 96px;
+      position: relative;
+      z-index: 50;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    @media (min-width: 768px) {
+      .bg-bfs-nav {
+        height: 96px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .logo-bg {
+      background-color: white;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      height: 80px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+      z-index: 51;
+      flex-shrink: 0;
+    }
+    @media (min-width: 768px) {
+      .logo-bg {
+        height: 96px;
+        padding: 0 1.5rem;
+      }
+    }
+    .hero-box {
+      background: #1e3a8a;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(30,58,138,0.17), 0 1.5px 6px rgba(51,58,120,0.12);
+      padding: 3rem 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+    .gold-accent {
+      color: #F4D03F;
+    }
+    .hero-bg {
+      background-image: url('Bkgrnd.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(36,49,99,0.23);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .text-dark-blue {
+      color: #1e3a8a;
+    }
+    .text-bright-gold {
+      color: #F4D03F;
+    }
+    .bg-bright-gold {
+      background-color: #F4D03F;
+    }
+    .hover\:bg-yellow-300:hover {
+      background-color: #fcd34d;
+    }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-800 leading-relaxed">
 
-<!-- Navigation -->
-<header class="bg-bfs-nav text-white shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto flex items-center justify-between h-full px-0 relative">
-        <a href="#hero" class="logo-bg" aria-label="BFS Automation Home">
-            <img src="BFS_NOGLOW_NBK.png" alt="BFS Automation Logo" style="height: 72px; width: auto; border-radius: 0;" />
-        </a>
-        <nav class="space-x-8 flex items-center h-full mr-6 text-white" role="navigation" aria-label="Primary Navigation">
-            <a href="#about" class="hover:text-bright-gold transition-colors duration-300 text-lg font-semibold border-r border-gray-400 pr-4">About</a>
-            <a href="#contact" class="hover:text-bright-gold transition-colors duration-300 text-lg font-semibold border-r border-gray-400 pl-4 pr-4">Contact</a>
-            <a href="#careers" class="hover:text-bright-gold transition-colors duration-300 text-lg font-semibold pl-4">Careers</a>
-        </nav>
+  <!-- Navigation -->
+  <header class="bg-bfs-nav text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex flex-wrap items-center justify-between h-auto md:h-24 px-4 md:px-0 relative">
+      <a href="#hero" class="logo-bg flex items-center h-20 md:h-24 px-4 md:px-6" aria-label="BFS Automation Home">
+        <img src="BFS_NOGLOW_NBK.png" alt="BFS Automation Logo" class="h-16 md:h-18 w-auto" />
+      </a>
+      <nav class="flex flex-wrap space-x-4 md:space-x-8 items-center text-white text-lg font-semibold" role="navigation" aria-label="Primary Navigation">
+        <a href="#about" class="border-r border-gray-400 pr-4 hover:text-bright-gold transition-colors duration-300">About</a>
+        <a href="#contact" class="border-r border-gray-400 px-4 hover:text-bright-gold transition-colors duration-300">Contact</a>
+        <a href="#careers" class="pl-4 hover:text-bright-gold transition-colors duration-300">Careers</a>
+      </nav>
     </div>
     <div style="height: 8px; background: linear-gradient(90deg, #F4D03F 0%, #f3b300 100%); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"></div>
-</header>
+  </header>
 
-<!-- Hero Section -->
-<section id="hero" class="hero-bg" role="banner" aria-label="Hero Section">
+  <!-- Hero Section -->
+  <section id="hero" class="hero-bg" role="banner" aria-label="Hero Section">
     <div class="hero-content">
-        <div class="hero-box text-center text-white">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 gold-accent">BFS Automation</h1>
-            <p class="text-xl md:text-2xl italic font-light mb-8">"The Future Is Bright"</p>
-        </div>
+      <div class="hero-box text-center text-white">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 gold-accent">BFS Automation</h1>
+        <p class="text-xl md:text-2xl italic font-light mb-8">"The Future Is Bright"</p>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- About Section -->
-<section id="about" class="py-20 md:py-24 bg-white" aria-labelledby="about-heading">
+  <!-- About Section -->
+  <section id="about" class="py-20 md:py-24 bg-white" aria-labelledby="about-heading">
     <div class="container mx-auto px-6">
-        <h2 id="about-heading" class="text-3xl md:text-4xl font-bold text-center mb-10 text-dark-blue">About Us</h2>
-        <div class="max-w-3xl mx-auto text-lg text-gray-700 space-y-6">
-            <p>
-                At BFS Automation, we are a startup dedicated to redefining custom machinery. Our team combines technical expertise with agility, developing tailored solutions that integrate seamlessly into your operations.
-            </p>
-            <p>
-                We partner closely with clients from concept to completion, delivering reliable, efficient machines that enhance productivity. With a foundation built on innovation and automation, we believe the future is bright.
-            </p>
-        </div>
+      <h2 id="about-heading" class="text-3xl md:text-4xl font-bold text-center mb-10 text-dark-blue">About Us</h2>
+      <div class="max-w-3xl mx-auto text-lg text-gray-700 space-y-6">
+        <p>
+          At BFS Automation, we are a startup dedicated to redefining custom machinery. Our team combines technical expertise with agility, developing tailored solutions that integrate seamlessly into your operations.
+        </p>
+        <p>
+          We partner closely with clients from concept to completion, delivering reliable, efficient machines that enhance productivity. With a foundation built on innovation and automation, we believe the future is bright.
+        </p>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-20 md:py-24 text-white" style="background-color: #1e3a8a;" aria-labelledby="contact-heading">
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 md:py-24 text-white" style="background-color: #1e3a8a;" aria-labelledby="contact-heading">
     <div class="container mx-auto px-6">
-        <h2 id="contact-heading" class="text-3xl md:text-4xl font-bold text-center mb-10 text-bright-gold">Contact Us</h2>
-        <div class="max-w-xl mx-auto text-center space-y-6">
-            <p class="text-lg">
-                Ready to build a brighter future for your business? Get in touch with us to discuss your custom machinery needs. We're excited to hear about your project!
-            </p>
-            <form action="#" method="post" class="space-y-4" aria-label="Contact form for BFS Automation">
-                <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded-lg text-gray-800 bg-white border border-gray-300 focus:outline-none focus:border-bright-gold transition-colors duration-300" />
-                <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded-lg text-gray-800 bg-white border border-gray-300 focus:outline-none focus:border-bright-gold transition-colors duration-300" />
-                <textarea name="message" placeholder="Your Message" rows="4" required class="w-full p-3 rounded-lg text-gray-800 bg-white border border-gray-300 focus:outline-none focus:border-bright-gold transition-colors duration-300"></textarea>
-                <button type="submit" class="w-full bg-bright-gold text-dark-blue font-bold py-3 px-6 rounded-lg shadow-md hover:bg-yellow-300 transition-colors duration-300">
-                    Send Message
-                </button>
-            </form>
-        </div>
+      <h2 id="contact-heading" class="text-3xl md:text-4xl font-bold text-center mb-10 text-bright-gold">Contact Us</h2>
+      <div class="max-w-xl mx-auto text-center space-y-6">
+        <p class="text-lg">
+          Ready to build a brighter future for your business? Get in touch with us to discuss your custom machinery needs. We're excited to hear about your project!
+        </p>
+        <form action="#" method="post" class="space-y-4" aria-label="Contact form for BFS Automation">
+          <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded-lg text-gray-800 bg-white border border-gray-300 focus:outline-none focus:border-bright-gold transition-colors duration-300" />
+          <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded-lg text-gray-800 bg-white border border-gray-300 focus:outline-none focus:border-bright-gold transition-colors duration-300" />
+          <textarea name="message" placeholder="Your Message" rows="4" required class="w-full p-3 rounded-lg text-gray-800 bg-white border border-gray-300 focus:outline-none focus:border-bright-gold transition-colors duration-300"></textarea>
+          <button type="submit" class="w-full bg-bright-gold text-dark-blue font-bold py-3 px-6 rounded-lg shadow-md hover:bg-yellow-300 transition-colors duration-300">
+            Send Message
+          </button>
+        </form>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- Careers Section -->
-<section id="careers" class="py-20 md:py-24" style="background-color: #f9f1c7;" aria-labelledby="careers-heading">
+  <!-- Careers Section -->
+  <section id="careers" class="py-20 md:py-24" style="background-color: #f9f1c7;" aria-labelledby="careers-heading">
     <div class="container mx-auto px-6">
-        <h2 id="careers-heading" class="text-3xl md:text-4xl font-bold text-center mb-10 text-dark-blue">Careers</h2>
-        <div class="max-w-3xl mx-auto text-lg text-gray-700 text-center">
-            <p>
-                We appreciate your interest in joining BFS Automation. Currently, there are no open career opportunities.
-            </p>
-            <p>
-                Please check back soon as we grow our team and continue to build the future.
-            </p>
-        </div>
+      <h2 id="careers-heading" class="text-3xl md:text-4xl font-bold text-center mb-10 text-dark-blue">Careers</h2>
+      <div class="max-w-3xl mx-auto text-lg text-gray-700 text-center">
+        <p>
+          We appreciate your interest in joining BFS Automation. Currently, there are no open career opportunities.
+        </p>
+        <p>
+          Please check back soon as we grow our team and continue to build the future.
+        </p>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- Footer -->
-<footer class="bg-dark-blue text-white text-center py-6" style="background-color: #1e3a8a;">
+  <!-- Footer -->
+  <footer class="bg-dark-blue text-white text-center py-6" style="background-color: #1e3a8a;">
     <div class="container mx-auto px-6">
-        <p>&copy; 2024 BFS Automation. All rights reserved.</p>
+      <p>&copy; 2024 BFS Automation. All rights reserved.</p>
     </div>
-</footer>
+  </footer>
 
 </body>
 </html>
+
