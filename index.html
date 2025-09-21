@@ -12,11 +12,26 @@
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6;
         }
-        /* Custom nav bar color from logo (rich blue and gold accent) */
+        /* Unified blue color throughout site */
         .bg-bfs-nav {
-            background-color: #232A47; /* Example: deep blue from logo */
+            background-color: #1e3a8a; /* Unified dark blue */
+            display: flex;
+            align-items: center;
+            height: 96px;
+            position: relative;
+            z-index: 50;
         }
-        /* Blue box for hero section */
+        /* White background behind logo with padding and shadow */
+        .logo-bg {
+            background-color: white;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            height: 96px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+            z-index: 51;
+        }
+        /* Blue box for hero content */
         .hero-box {
             background: #1e3a8a;
             border-radius: 20px;
@@ -26,11 +41,11 @@
             margin: 0 auto;
             opacity: 0.95;
         }
-        /* Optional gold accent */
+        /* Gold accent color */
         .gold-accent {
             color: #F4D03F;
         }
-        /* Responsive BG image */
+        /* Hero background with image */
         .hero-bg {
             background-image: url('image.jpg');
             background-size: cover;
@@ -42,13 +57,15 @@
             justify-content: center;
             position: relative;
         }
+        /* Dark overlay over hero background for contrast */
         .hero-bg:after {
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(36,49,99,0.23); /* dark blue overlay for contrast */
+            background: rgba(36,49,99,0.23);
             z-index: 1;
         }
+        /* Ensure hero content sits above overlay */
         .hero-content {
             position: relative;
             z-index: 2;
@@ -59,12 +76,12 @@
 <body class="bg-gray-100 text-gray-800 leading-relaxed">
 
 <!-- Navigation -->
-<header class="bg-bfs-nav text-white shadow-lg sticky top-0 z-50" style="height: 96px;">
+<header class="bg-bfs-nav text-white shadow-lg sticky top-0 z-50">
     <div class="container mx-auto flex items-center justify-between h-full px-0 relative">
-        <a href="#hero" class="flex items-center" style="height: 100%; margin-left: 0;">
-            <img src="BFS_NOGLOW_NBK.png" alt="BFS Automation Logo" style="height: 96px; width: auto; border-radius: 0; box-shadow: 0 6px 16px rgba(0,0,0,0.18);" />
+        <a href="#hero" class="logo-bg">
+            <img src="BFS_NOGLOW_NBK.png" alt="BFS Automation Logo" style="height: 72px; width: auto; border-radius: 0;" />
         </a>
-        <div class="space-x-8 flex items-center h-full mr-6">
+        <div class="space-x-8 flex items-center h-full mr-6 text-white">
             <a href="#about" class="hover:text-bright-gold transition-colors duration-300 text-lg font-semibold border-r border-gray-400 pr-4">About</a>
             <a href="#industries" class="hover:text-bright-gold transition-colors duration-300 text-lg font-semibold border-r border-gray-400 px-4">Industries</a>
             <a href="#contact" class="hover:text-bright-gold transition-colors duration-300 text-lg font-semibold pl-4">Contact</a>
@@ -85,6 +102,98 @@
         </div>
     </div>
 </section>
-<!-- Remainder of content unchanged ... -->
+
+<!-- About Section -->
+<section id="about" class="py-20 md:py-24 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-dark-blue">About Us</h2>
+        <div class="max-w-3xl mx-auto text-lg text-gray-700 space-y-6">
+            <p>
+                At BFS Automation, we are at the forefront of innovation, specializing in the design, engineering, and manufacturing of custom machinery. We believe in creating robust, efficient, and intelligent solutions that redefine what's possible for our clients. Our team of skilled engineers and technicians works tirelessly to develop bespoke machinery that seamlessly integrates into your operations, boosting productivity and pushing the boundaries of technology.
+            </p>
+            <p>
+                We are dedicated to building a brighter future, one machine at a time. Our commitment to quality, precision, and customer satisfaction is unwavering. We partner with you from concept to completion, ensuring every solution we deliver is perfectly tailored to your unique needs.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Industries Section -->
+<section id="industries" class="py-20 md:py-24 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-dark-blue">Industries We Serve</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+            <!-- Construction -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-bright-gold">
+                <h3 class="text-xl font-bold mb-4 text-dark-blue">Construction</h3>
+                <p class="text-gray-700">
+                    We provide custom machinery that enhances the efficiency and safety of construction projects, from automated building material handling to specialized equipment for on-site operations.
+                </p>
+            </div>
+
+            <!-- Automotive -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-bright-gold">
+                <h3 class="text-xl font-bold mb-4 text-dark-blue">Automotive</h3>
+                <p class="text-gray-700">
+                    Our solutions for the automotive industry include advanced assembly lines, robotic welding cells, and precision-engineered components for vehicle manufacturing.
+                </p>
+            </div>
+
+            <!-- Food Manufacturing -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-bright-gold">
+                <h3 class="text-xl font-bold mb-4 text-dark-blue">Food Manufacturing</h3>
+                <p class="text-gray-700">
+                    We build custom hygienic machinery for processing, packaging, and quality control, ensuring compliance and efficiency in food production environments.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 md:py-24 bg-dark-blue text-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-bright-gold">Contact Us</h2>
+        <div class="max-w-xl mx-auto text-center space-y-6">
+            <p class="text-lg">
+                Ready to build a brighter future for your business? Get in touch with us to discuss your custom machinery needs. We're excited to hear about your project!
+            </p>
+            <form action="#" class="space-y-4">
+                <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg text-gray-800 bg-white border border-gray-300 focus:outline-none focus:border-bright-gold transition-colors duration-300" />
+                <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg text-gray-800 bg-white border border-gray-300 focus:outline-none focus:border-bright-gold transition-colors duration-300" />
+                <textarea placeholder="Your Message" rows="4" class="w-full p-3 rounded-lg text-gray-800 bg-white border border-gray-300 focus:outline-none focus:border-bright-gold transition-colors duration-300"></textarea>
+                <button type="submit" class="w-full bg-bright-gold text-dark-blue font-bold py-3 px-6 rounded-lg shadow-md hover:bg-yellow-300 transition-colors duration-300">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Careers Section -->
+<section id="careers" class="py-20 md:py-24 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-dark-blue">Careers</h2>
+    <div class="max-w-3xl mx-auto text-lg text-gray-700 text-center">
+      <p>
+        We appreciate your interest in joining BFS Automation. Currently, there are no open career opportunities.
+      </p>
+      <p>
+        Please check back soon as we grow our team and continue to build the future.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark-blue text-white text-center py-6">
+    <div class="container mx-auto px-6">
+        <p>&copy; 2024 BFS Automation. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
 
 
