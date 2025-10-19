@@ -1,383 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BFS Agriculture - Agri Services & Farm Management</title>
-    <style>
-        /* Color Variables from Logo */
-        :root {
-            --primary-dark-blue: #2A404F;
-            --accent-gold: #BC9C5F;
-            --light-green: #70AD47;
-            --dark-green: #4D7F33;
-            --light-gray: #F0F0F0;
-            --text-color: #333;
-            --white: #FFFFFF;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFS Agriculture - Agri Services & Farm Management</title>
+    <style>
+        /* Color Variables from Logo */
+        :root {
+            --primary-dark-blue: #2A404F;
+            --accent-gold: #BC9C5F;
+            --light-green: #70AD47;
+            --dark-green: #4D7F33;
+            --light-gray: #F0F0F0;
+            --text-color: #333;
+            --white: #FFFFFF;
+        }
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--white);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-        header {
-            background-color: var(--primary-dark-blue);
-            color: var(--white);
-            padding: 1rem 0;
-            text-align: center;
-        }
+        header {
+            background-color: var(--primary-dark-blue);
+            color: var(--white);
+            padding: 1rem 0;
+            text-align: center;
+        }
 
-        header img {
-            /* Updated logo path */
-            max-width: 250px;
-            height: auto;
-            display: block;
-            margin: 0 auto 1rem auto;
-            background-color: var(--light-gray);
-            padding: 10px;
-            border-radius: 8px;
-        }
+        header img {
+            /* Updated logo path */
+            max-width: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto 1rem auto;
+            background-color: var(--light-gray);
+            padding: 10px;
+            border-radius: 8px;
+        }
 
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--accent-gold); /* Set nav container background */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        /* --- Mobile-First Navigation Styles --- */
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            background-color: var(--accent-gold);
-            flex-wrap: wrap;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
+        .menu-toggle {
+            display: block; /* Show on mobile */
+            width: 100%;
+            background-color: var(--dark-green);
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: left;
+        }
 
-        nav ul li a {
-            display: block;
-            padding: 1rem 1.5rem;
-            text-decoration: none;
-            color: var(--primary-dark-blue);
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none; /* Hidden by default on mobile */
+            flex-direction: column; /* Stack vertically on mobile */
+            background-color: var(--accent-gold);
+        }
+        
+        nav ul.open {
+            display: flex; /* Show when toggled open */
+        }
 
-        nav ul li a:hover, nav ul li a.active {
-            background-color: var(--dark-green);
-            color: var(--white);
-        }
+        nav ul li {
+            border-top: 1px solid rgba(42, 64, 79, 0.1); /* Separator lines on mobile */
+        }
 
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
+        nav ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: var(--primary-dark-blue);
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-        section {
-            background-color: var(--light-gray);
-            padding: 2rem;
-            margin-bottom: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--dark-green);
+            color: var(--white);
+        }
+        
+        /* --- Desktop/Tablet Navigation Styles --- */
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none; /* Hide on larger screens */
+            }
 
-        section h2 {
-            color: var(--primary-dark-blue);
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 3px solid var(--accent-gold);
-            padding-bottom: 0.5rem;
-        }
-        
-        /* General Service Layout */
-        .service-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
+            nav ul {
+                display: flex; /* Show as a row on larger screens */
+                justify-content: center;
+                flex-direction: row;
+            }
+            
+            nav ul li {
+                border-top: none; /* Remove separator lines */
+            }
+        }
+        
+        /* --- General Layout Styles (from original) --- */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
 
-        .service-item {
-            background-color: var(--white);
-            padding: 1.5rem;
-            border-radius: 6px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--light-green);
-        }
+        section {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
 
-        .service-item h3 {
-            color: var(--dark-green);
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
-        
-        .service-item p {
-            font-size: 0.95rem;
-        }
+        section h2 {
+            color: var(--primary-dark-blue);
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--accent-gold);
+            padding-bottom: 0.5rem;
+        }
+        
+        /* General Service Layout */
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
 
-        /* The featured-image class is hidden as requested */
-        .featured-image {
-            display: none;
-        }
+        .service-item {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--light-green);
+        }
 
-        /* Pricing Table Styles */
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1.5rem;
-            background-color: var(--white);
-        }
+        .service-item h3 {
+            color: var(--dark-green);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-item p {
+            font-size: 0.95rem;
+        }
 
-        .pricing-table th, .pricing-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+        /* The featured-image class is hidden as requested */
+        .featured-image {
+            display: none;
+        }
 
-        .pricing-table th {
-            background-color: var(--primary-dark-blue);
-            color: var(--white);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
+        /* Pricing Table Styles */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            background-color: var(--white);
+        }
 
-        .pricing-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+        .pricing-table th, .pricing-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
 
-        .contact-info {
-            text-align: center;
-            margin-top: 2rem;
-            padding: 1rem;
-            background-color: var(--white);
-            border: 1px dashed var(--dark-green);
-            border-radius: 4px;
-        }
+        .pricing-table th {
+            background-color: var(--primary-dark-blue);
+            color: var(--white);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
 
-        .contact-info p {
-            margin: 0.5rem 0;
-        }
+        .pricing-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
 
-        footer {
-            background-color: var(--primary-dark-blue);
-            color: var(--white);
-            text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 3rem;
-        }
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: var(--white);
+            border: 1px dashed var(--dark-green);
+            border-radius: 4px;
+        }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            nav ul li a {
-                padding: 0.8rem 1rem;
-            }
-            .container {
-                margin: 1rem auto;
-            }
-            section {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+
+        footer {
+            background-color: var(--primary-dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive adjustments (Original) */
+        @media (max-width: 768px) {
+            /* Original mobile styles for container and sections */
+            .container {
+                margin: 1rem auto;
+            }
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <img src="BFS_AG.png" alt="BFS Agriculture Logo">
-        <p>Farming for a Brighter Future</p>
-    </header>
+    <header>
+        <img src="BFS_AG.png" alt="BFS Agriculture Logo">
+        <p>Farming for a Brighter Future</p>
+    </header>
 
-    <nav>
-        <ul>
-            <li><a href="#about" class="active">About Us</a></li>
-            <li><a href="#farm-to-owner">Farm to Owner (Management)</a></li>
-            <li><a href="#farm-to-farm">Farm to Farm (Custom Services)</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
-    </nav>
+    <nav id="main-nav">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-menu">Menu ☰</button>
+        <ul id="nav-menu" role="menu">
+            <li><a href="#about" class="active">About Us</a></li>
+            <li><a href="#farm-to-owner">Farm to Owner (Management)</a></li>
+            <li><a href="#farm-to-farm">Farm to Farm (Custom Services)</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
 
-    <div class="container">
-        <section id="about">
-            <h2>About BFS Agriculture</h2>
-            <p>BFS Agriculture is the operations branch of a multi-generational farm based in Central Pennsylvania. We currently manage over 750 acres of row crops, producing corn, soybeans, wheat, and a variety of cover and forage crops. These crops support our sister dairy and beef operations while also supplying high-quality commodities to local food manufacturers.</p>
-            <p>As we transition to the next generation of leadership, our mission is to expand our management area and serve as a trusted partner to help landowners and producers get the most value and productivity from their farms. We are committed to land stewardship, regenerative practices, and the use of modern agronomic technologies.</p>
-        </section>
+    <div class="container">
+        <section id="about">
+            <h2>About BFS Agriculture</h2>
+            <p>BFS Agriculture is the operations branch of a multi-generational farm based in Central Pennsylvania. We currently manage over 750 acres of row crops, producing corn, soybeans, wheat, and a variety of cover and forage crops. These crops support our sister dairy and beef operations while also supplying high-quality commodities to local food manufacturers.</p>
+            <p>As we transition to the next generation of leadership, our mission is to expand our management area and serve as a trusted partner to help landowners and producers get the most value and productivity from their farms. We are committed to land stewardship, regenerative practices, and the use of modern agronomic technologies.</p>
+        </section>
 
-        
-        <section id="farm-to-owner">
-            <h2>Farm to Owner Services: Land & Farm Management</h2>
-            <p>Maximize your agricultural investment with professional, transparent, and sustainable farm management. We offer a proven track record managing agricultural land with a focus on long-term soil health and sustainability.</p>
-            
-            <h3>Management & Lease Options</h3>
-            <div class="service-list">
-                <div class="service-item">
-                    <h3>Cash Rent Agreements</h3>
-                    <p>Guaranteed, on-time payments for a reliable, steady income.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Crop Share Partnerships</h3>
-                    <p>Shared input costs and returns for a fully aligned partnership.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Custom Management Contracts</h3>
-                    <p>Tailor-fit management to meet the landowner's specific goals. (Terms are negotiable depending on location, soil type, and management scope.)</p>
-                </div>
-            </div>
+        
+        <section id="farm-to-owner">
+            <h2>Farm to Owner Services: Land & Farm Management</h2>
+            <p>Maximize your agricultural investment with professional, transparent, and sustainable farm management. We offer a proven track record managing agricultural land with a focus on long-term soil health and sustainability.</p>
+            
+            <h3>Management & Lease Options</h3>
+            <div class="service-list">
+                <div class="service-item">
+                    <h3>Cash Rent Agreements</h3>
+                    <p>Guaranteed, on-time payments for a reliable, steady income.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Crop Share Partnerships</h3>
+                    <p>Shared input costs and returns for a fully aligned partnership.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Custom Management Contracts</h3>
+                    <p>Tailor-fit management to meet the landowner's specific goals. (Terms are negotiable depending on location, soil type, and management scope.)</p>
+                </div>
+            </div>
 
-            <h3>Core Management Services</h3>
-            <ul style="list-style-type: disc; color: var(--primary-dark-blue);">
-                <li>Full-season crop management (corn, soybeans, wheat, cover crops).</li>
-                <li>Strategic crop rotation and nutrient planning.</li>
-                <li>Precision fertility programs and variable-rate application providing soil and water safety.</li>
-                <li>Conservation and soil health management, including buffer and erosion control compliance.</li>
-                <li>Transparent yearly farm reports including yields, inputs, and management profits.</li>
-                <li>Pasture management.</li>
-                <li>On-farm facilities improvement profit share.</li>
-                <li>On-farm well water & septic field soil testing.</li>
-                <li>At-cost equipment rental and use.</li>
-            </ul>
-        </section>
+            <h3>Core Management Services</h3>
+            <ul style="list-style-type: disc; color: var(--primary-dark-blue);">
+                <li>Full-season crop management (corn, soybeans, wheat, cover crops).</li>
+                <li>Strategic crop rotation and nutrient planning.</li>
+                <li>Precision fertility programs and variable-rate application providing soil and water safety.</li>
+                <li>Conservation and soil health management, including buffer and erosion control compliance.</li>
+                <li>Transparent yearly farm reports including yields, inputs, and management profits.</li>
+                <li>Pasture management.</li>
+                <li>On-farm facilities improvement profit share.</li>
+                <li>On-farm well water & septic field soil testing.</li>
+                <li>At-cost equipment rental and use.</li>
+            </ul>
+        </section>
 
-        
-        <section id="farm-to-farm">
-            <h2>Farm to Farm Services: Custom Application & Products</h2>
-            <p>We provide fellow producers with custom services utilizing reliable equipment and professionally trained staff, paired with an adaptive use of precision agriculture and technology.</p>
+        
+        <section id="farm-to-farm">
+            <h2>Farm to Farm Services: Custom Application & Products</h2>
+            <p>We provide fellow producers with custom services utilizing reliable equipment and professionally trained staff, paired with an adaptive use of precision agriculture and technology.</p>
 
-            <h3>Custom Services & Pricing (Spring 2026)</h3>
-            <table class="pricing-table">
-                <thead>
-                    <tr>
-                        <th>Service</th>
-                        <th>Description</th>
-                        <th>Cost Range</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Fertilizer Application*</td>
-                        <td>Dry broadcast blended P, K, & N.</td>
-                        <td>$9.00 - $11.00 /Acre</td>
-                    </tr>
-                    <tr>
-                        <td>Lime Application*</td>
-                        <td>Broadcast lime, various types.</td>
-                        <td>$10.50 - $11.50 /Ton</td>
-                    </tr>
-                    <tr>
-                        <td>Soil Sampling</td>
-                        <td>Soil collection, macro & micro tests available.</td>
-                        <td>$3.00 - $10.00 /Acre</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="3" style="font-style: italic; font-size: 0.9em;">
-                            *Variable rate services available with soil sampling or harvest removal data. Prices are subject to change based on actual quantities.
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
+            <h3>Custom Services & Pricing (Spring 2026)</h3>
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Description</th>
+                        <th>Cost Range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fertilizer Application*</td>
+                        <td>Dry broadcast blended P, K, & N.</td>
+                        <td>$9.00 - $11.00 /Acre</td>
+                    </tr>
+                    <tr>
+                        <td>Lime Application*</td>
+                        <td>Broadcast lime, various types.</td>
+                        <td>$10.50 - $11.50 /Ton</td>
+                    </tr>
+                    <tr>
+                        <td>Soil Sampling</td>
+                        <td>Soil collection, macro & micro tests available.</td>
+                        <td>$3.00 - $10.00 /Acre</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" style="font-style: italic; font-size: 0.9em;">
+                            *Variable rate services available with soil sampling or harvest removal data. Prices are subject to change based on actual quantities.
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
 
-            <h3>Products Offered</h3>
-            <div class="service-list">
-                <div class="service-item" style="border-left: 5px solid var(--accent-gold);">
-                    <h3>Seed Corn & Soybean</h3>
-                    <p>Seed Consultants Central Pennsylvania Varieties.</p>
-                </div>
-                <div class="service-item" style="border-left: 5px solid var(--accent-gold);">
-                    <h3>Seed Wheat</h3>
-                    <p>BFS Hybrids Certified Wheat Varieties. *Availability varies based on demand.</p>
-                </div>
-                <div class="service-item" style="border-left: 5px solid var(--accent-gold);">
-                    <h3>Fertilizer Brokering</h3>
-                    <p>Sources cheapest N, P, & K dry fertilizers from a variety of suppliers.</p>
-                </div>
-            </div>
-            
-            <p style="margin-top: 2rem;">Terms & Conditions Summary: Payment is due within 30 days of receiving the invoice. Services are scheduled seasonally and may vary due to weather or availability. Cancellations require 48-hour notice to avoid charges. Liability for crop loss or damage due to uncontrollable factors is excluded. Soil sampling results are advisory only.</p>
-        </section>
+            <h3>Products Offered</h3>
+            <div class="service-list">
+                <div class="service-item" style="border-left: 5px solid var(--accent-gold);">
+                    <h3>Seed Corn & Soybean</h3>
+                    <p>Seed Consultants Central Pennsylvania Varieties.</p>
+                </div>
+                <div class="service-item" style="border-left: 5px solid var(--accent-gold);">
+                    <h3>Seed Wheat</h3>
+                    <p>BFS Hybrids Certified Wheat Varieties. *Availability varies based on demand.</p>
+                </div>
+                <div class="service-item" style="border-left: 5px solid var(--accent-gold);">
+                    <h3>Fertilizer Brokering</h3>
+                    <p>Sources cheapest N, P, & K dry fertilizers from a variety of suppliers.</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 2rem;">Terms & Conditions Summary: Payment is due within 30 days of receiving the invoice. Services are scheduled seasonally and may vary due to weather or availability. Cancellations require 48-hour notice to avoid charges. Liability for crop loss or damage due to uncontrollable factors is excluded. Soil sampling results are advisory only.</p>
+        </section>
 
-        
-        <section id="contact">
-            <h2>Contact BFS Agriculture</h2>
-            <p style="text-align: center;">For inquiries or to discuss farm management and service opportunities, please contact us:</p>
+        
+        <section id="contact">
+            <h2>Contact BFS Agriculture</h2>
+            <p style="text-align: center;">For inquiries or to discuss farm management and service opportunities, please contact us:</p>
 
-            <div class="contact-info">
-                <h3>General & Farm Management Inquiries</h3>
-                <p><strong>Charles Sebright</strong></p>
-                <p>Operations & Land Management</p>
-                <p><strong>Phone:</strong> <a href="tel:7173164703" style="color: var(--primary-dark-blue); text-decoration: none;">(717) 316-4703</a></p>
-                <p><strong>Email:</strong> <a href="mailto:Csebright@bright-fs.com" style="color: var(--primary-dark-blue); text-decoration: none;">Csebright@bright-fs.com</a></p>
-            </div>
-            
-            <div class="contact-info" style="margin-top: 1rem;">
-                <h3>Job-Specific Pricing & Service Inquiries</h3>
-                <p>Contact an agronomist with the requested services, total acreage, field location(s), and preferred service timeline.</p>
-                <p><strong>Sales Email:</strong> <a href="mailto:Ag_sales@bright-fs.com" style="color: var(--dark-green); text-decoration: none;">Ag_sales@bright-fs.com</a></p>
-            </div>
-        </section>
-    </div>
+            <div class="contact-info">
+                <h3>General & Farm Management Inquiries</h3>
+                <p><strong>Charles Sebright</strong></p>
+                <p>Operations & Land Management</p>
+                <p><strong>Phone:</strong> <a href="tel:7173164703" style="color: var(--primary-dark-blue); text-decoration: none;">(717) 316-4703</a></p>
+                <p><strong>Email:</strong> <a href="mailto:Csebright@bright-fs.com" style="color: var(--primary-dark-blue); text-decoration: none;">Csebright@bright-fs.com</a></p>
+            </div>
+            
+            <div class="contact-info" style="margin-top: 1rem;">
+                <h3>Job-Specific Pricing & Service Inquiries</h3>
+                <p>Contact an agronomist with the requested services, total acreage, field location(s), and preferred service timeline.</p>
+                <p><strong>Sales Email:</strong> <a href="mailto:Ag_sales@bright-fs.com" style="color: var(--dark-green); text-decoration: none;">Ag_sales@bright-fs.com</a></p>
+            </div>
+        </section>
+    </div>
 
-    <footer>
-        <p>&copy; 2023 BFS Agriculture. All rights reserved. | <a href="mailto:Csebright@bright-fs.com" style="color: var(--accent-gold); text-decoration: none;">Email Us</a></p>
-    </footer>
+    <footer>
+        <p>&copy; 2023 BFS Agriculture. All rights reserved. | <a href="mailto:Csebright@bright-fs.com" style="color: var(--accent-gold); text-decoration: none;">Email Us</a></p>
+    </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+    <script>
+        // Get the menu toggle button and the menu list
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('nav a');
 
-                document.querySelector('nav a.active')?.classList.remove('active');
-                this.classList.add('active');
+        // Toggle the navigation menu open/closed on button click
+        menuToggle.addEventListener('click', function() {
+            const isOpen = navMenu.classList.toggle('open');
+            this.setAttribute('aria-expanded', isOpen);
+            this.textContent = isOpen ? 'Menu ✕' : 'Menu ☰'; // Change icon/text
+        });
+        
+        // Function to close menu after clicking a link (mobile improvement)
+        function closeMenu() {
+            if (window.innerWidth < 769 && navMenu.classList.contains('open')) {
+                navMenu.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.textContent = 'Menu ☰';
+            }
+        }
 
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
+        // Smooth scrolling and active class logic
+        navLinks.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 1. Scroll logic
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
 
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70, // Adjust for sticky nav height
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70, // Adjust for sticky nav height
+                        behavior: 'smooth'
+                    });
+                }
 
-        // Set active class on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
-            let current = '';
+                // 2. Active class logic (immediate update)
+                document.querySelector('nav a.active')?.classList.remove('active');
+                this.classList.add('active');
+                
+                // 3. Close menu on click
+                closeMenu();
+            });
+        });
 
-            // Find the section currently in view
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                // Use the view port height as a reference for where 'active' changes
-                if (pageYOffset >= sectionTop - 150) { 
-                    current = section.getAttribute('id');
-                }
-            });
+        // Set active class on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            let current = '';
 
-            // Update the active nav link
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+            // Find the section currently in view
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                // Use the view port height as a reference for where 'active' changes
+                if (pageYOffset >= sectionTop - 150) { 
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Update the active nav link
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
