@@ -33,11 +33,12 @@
         }
 
         header img {
+            /* Updated logo path */
             max-width: 250px;
             height: auto;
             display: block;
             margin: 0 auto 1rem auto;
-            background-color: var(--light-gray); /* Background for the logo image area */
+            background-color: var(--light-gray);
             padding: 10px;
             border-radius: 8px;
         }
@@ -121,13 +122,9 @@
             font-size: 0.95rem;
         }
 
+        /* The featured-image class is kept here, but no elements use it, so no empty space will be created */
         .featured-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border: 5px solid var(--accent-gold);
+            display: none; /* Hide images globally */
         }
 
         /* Pricing Table Styles */
@@ -214,14 +211,13 @@
     <div class="container">
         <section id="about">
             <h2>About BFS Agriculture</h2>
-            <img src="farm1.png" alt="Drone image of BFS Agriculture fields" class="featured-image">
             [cite_start]<p>BFS Agriculture is the operations branch of a **multi-generational farm** based in Central Pennsylvania[cite: 6, 19]. [cite_start]We currently manage **over 750 acres of row crops** [cite: 7][cite_start], producing **corn, soybeans, wheat**, and a variety of **cover and forage crops**[cite: 7]. [cite_start]These crops support our sister dairy and beef operations while also supplying high-quality commodities to local food manufacturers[cite: 8].</p>
             [cite_start]<p>As we transition to the next generation of leadership, our mission is to expand our management area and serve as a trusted partner to help landowners and producers get the most value and productivity from their farms[cite: 10]. [cite_start]We are committed to **land stewardship, regenerative practices, and the use of modern agronomic technologies**[cite: 9].</p>
         </section>
 
+        ---
         <section id="farm-to-owner">
             <h2>Farm to Owner Services: Land & Farm Management</h2>
-            <img src="map1.png" alt="Image of a farm map or management plan" class="featured-image">
             <p>Maximize your agricultural investment with professional, transparent, and sustainable farm management. [cite_start]We offer a proven track record managing agricultural land [cite: 17] [cite_start]with a focus on **long-term soil health and sustainability**[cite: 20].</p>
             
             <h3>Management & Lease Options</h3>
@@ -254,9 +250,9 @@
             </ul>
         </section>
 
+        ---
         <section id="farm-to-farm">
             <h2>Farm to Farm Services: Custom Application & Products</h2>
-            <img src="equipment1.png" alt="Image of farming equipment used for custom application" class="featured-image">
             [cite_start]<p>We provide fellow producers with custom services utilizing **reliable equipment and professionally trained staff** [cite: 22][cite_start], paired with an adaptive use of **precision agriculture and technology**[cite: 21].</p>
 
             <h3>Custom Services & Pricing (Starting Spring 2026)</h3>
@@ -310,9 +306,10 @@
                 </div>
             </div>
             
-            <p style="margin-top: 2rem;">**Terms & Conditions Summary:** Payment is due within **30 days** of receiving the invoice. Services are scheduled seasonally and may vary due to weather or availability. Cancellations require **48-hour notice** to avoid charges. Liability for crop loss or damage due to uncontrollable factors is excluded. [cite_start]Soil sampling results are advisory only[cite: 67, 68, 69, 70].</p>
+            [cite_start]<p style="margin-top: 2rem;">**Terms & Conditions Summary:** Payment is due within **30 days** of receiving the invoice[cite: 67]. [cite_start]Services are scheduled seasonally and may vary due to weather or availability[cite: 68]. [cite_start]Cancellations require **48-hour notice** to avoid charges[cite: 69]. [cite_start]Liability for crop loss or damage due to uncontrollable factors is excluded[cite: 69]. [cite_start]Soil sampling results are advisory only[cite: 70].</p>
         </section>
 
+        ---
         <section id="contact">
             <h2>Contact BFS Agriculture</h2>
             <p style="text-align: center;">For inquiries or to discuss farm management and service opportunities, please contact us:</p>
