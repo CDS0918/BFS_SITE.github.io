@@ -1,27 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BFS Agriculture</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f3f4f6;
-      color: #1e3a8a;
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h1 {
-      color: #F4D03F;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFS Agriculture - Agri Services & Custom Farming</title>
+    <style>
+        :root {
+            --primary-dark-blue: #2A404F; /* From BFS letters */
+            --accent-gold: #BC9C5F; /* From F in BFS */
+            --light-green: #70AD47; /* From plant sprout */
+            --dark-green: #4D7F33; /* For stronger accents or text */
+            --brown: #8B4513; /* From soil */
+            --light-gray: #F0F0F0; /* Background for sections */
+            --text-color: #333;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-dark-blue);
+            color: var(--white);
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header img {
+            max-width: 250px; /* Adjust as needed */
+            height: auto;
+            display: block;
+            margin: 0 auto 1rem auto;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: var(--accent-gold); /* Navigation background */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: var(--primary-dark-blue);
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--dark-green);
+            color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: var(--primary-dark-blue);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .service-item {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--light-green);
+        }
+
+        .service-item h3 {
+            color: var(--dark-green);
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-item p {
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+
+        footer {
+            background-color: var(--primary-dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li a {
+                padding: 0.8rem 1rem;
+            }
+            .container {
+                margin: 1rem auto;
+            }
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+
+    <header>
+        <!-- Your logo image will go here --><!-- Replace 'path/to/your/logo.png' with the actual path to your logo image --><!-- For now, I'll use a placeholder and then show you how to generate one with the colors --><img src="https://i.imgur.com/your-logo-path-here.png" alt="BFS Agriculture Logo"> 
+        <h1>BFS Agriculture</h1>
+        <p>Your Partner in Sustainable Farming and Agricultural Success</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#farm-to-farm">Farm to Farm Services</a></li>
+            <li><a href="#farm-to-owner">Farm to Owner Services</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="home">
+            <h2>Welcome to BFS Agriculture</h2>
+            <p>At BFS Agriculture, we are dedicated to providing top-tier agri services and custom farming solutions tailored to meet the diverse needs of modern agriculture. Whether you're a large-scale producer or a landowner looking to maximize your investment, our expertise and commitment to excellence ensure success. We leverage innovative practices and cutting-edge technology to foster productivity, sustainability, and profitability across all our operations.</p>
+            <p>Explore our specialized services designed to support every aspect of your agricultural endeavors.</p>
+        </section>
+
+        <section id="farm-to-farm">
+            <h2>Farm to Farm Services</h2>
+            <p>Optimizing operations for producers, by producers. Our comprehensive farm-to-farm services are designed to enhance efficiency, yield, and overall farm performance. We offer flexible solutions that integrate seamlessly with your existing practices.</p>
+
+            <div class="service-list">
+                <div class="service-item">
+                    <h3>Custom Planting & Seeding</h3>
+                    <p>Precision planting services for various crops, utilizing state-of-the-art equipment for optimal seed placement and emergence.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Harvesting Solutions</h3>
+                    <p>Efficient and timely harvesting services to maximize crop recovery and minimize losses, adapted to different crop types and field conditions.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Field Cultivation & Tillage</h3>
+                    <p>Expert land preparation, including conventional and conservation tillage, to create ideal seedbeds and improve soil health.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Spraying & Application Services</h3>
+                    <p>Accurate and effective application of fertilizers, pesticides, and herbicides with modern spraying technology to protect your crops and enhance growth.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Drainage & Land Improvement</h3>
+                    <p>Installation and maintenance of drainage systems, tiling, and other land improvement services to optimize water management and land productivity.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Cover Cropping & Soil Health</h3>
+                    <p>Consultation and implementation of cover cropping strategies to improve soil structure, fertility, and reduce erosion.</p>
+                </div>
+            </div>
+            <!-- Add more Farm to Farm services as needed --></section>
+
+        <section id="farm-to-owner">
+            <h2>Farm to Owner Services</h2>
+            <p>For landowners seeking professional management and strategic development of their agricultural assets. We provide tailored solutions that ensure your land is productive, profitable, and well-maintained without the day-to-day operational burden.</p>
+
+            <div class="service-list">
+                <div class="service-item">
+                    <h3>Land Management & Lease Agreements</h3>
+                    <p>Comprehensive management of agricultural land, including tenant sourcing, lease negotiation, and ongoing property oversight.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Crop Share & Cash Rent Management</h3>
+                    <p>Professional administration of crop share and cash rent agreements to optimize returns and ensure fair partnerships.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Agronomic Consultation</h3>
+                    <p>Expert advice on crop selection, rotation, soil testing, and nutrient management to maximize land potential and sustainability.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Financial Reporting & Analysis</h3>
+                    <p>Detailed financial tracking, budgeting, and performance analysis to keep you informed about your investment's profitability.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Conservation & Environmental Planning</h3>
+                    <p>Development and implementation of conservation plans, waterway maintenance, and environmental stewardship programs.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Farm Infrastructure Development</h3>
+                    <p>Planning and oversight of improvements to farm infrastructure, such as barns, irrigation systems, and fencing.</p>
+                </div>
+            </div>
+            <!-- Add more Farm to Owner services as needed --></section>
+
+        <section id="contact">
+            <h2>Contact BFS Agriculture</h2>
+            <p style="text-align: center;">Ready to discuss your agricultural needs? Get in touch with us today!</p>
+            <div style="text-align: center;">
+                <p><strong>Phone:</strong> [Your Phone Number]</p>
+                <p><strong>Email:</strong> <a href="mailto:info@bfsagriculture.com" style="color: var(--dark-green); text-decoration: none;">info@bfsagriculture.com</a></p>
+                <p><strong>Address:</strong> [Your Company Address, City, State, Zip]</p>
+            </div>
+            <!-- You can add a contact form here if desired --></section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 BFS Agriculture. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector('nav a.active')?.classList.remove('active');
+                this.classList.add('active');
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70, // Adjust for fixed header/nav if any
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Set active class on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) { // Adjust offset as needed
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
 
   <h1>BFS Agriculture</h1>
   <p>Welcome to BFS Agriculture. Here we focus on innovative solutions and technologies to advance modern farming operations. Check back soon for more updates on our agriculture projects and services.</p>
