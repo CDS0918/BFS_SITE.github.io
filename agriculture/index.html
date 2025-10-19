@@ -33,7 +33,6 @@
         }
 
         header img {
-            /* Updated logo path */
             max-width: 250px;
             height: auto;
             display: block;
@@ -47,7 +46,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: var(--accent-gold); /* Set nav container background */
+            background-color: var(--accent-gold);
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
@@ -97,24 +96,7 @@
             color: var(--white);
         }
         
-        /* --- Desktop/Tablet Navigation Styles --- */
-        @media (min-width: 769px) {
-            .menu-toggle {
-                display: none; /* Hide on larger screens */
-            }
-
-            nav ul {
-                display: flex; /* Show as a row on larger screens */
-                justify-content: center;
-                flex-direction: row;
-            }
-            
-            nav ul li {
-                border-top: none; /* Remove separator lines */
-            }
-        }
-        
-        /* --- General Layout Styles (from original) --- */
+        /* --- General Layout Styles --- */
         .container {
             max-width: 1200px;
             margin: 2rem auto;
@@ -214,14 +196,35 @@
             margin-top: 3rem;
         }
 
-        /* Responsive adjustments (Original) */
+        /* ------------------------------------------------------------------ */
+        /* Responsive Adjustments (Max Width 768px: Mobile/Small Tablet) */
+        /* ------------------------------------------------------------------ */
         @media (max-width: 768px) {
-            /* Original mobile styles for container and sections */
+            /* General layout changes for smaller screens */
             .container {
                 margin: 1rem auto;
             }
             section {
                 padding: 1.5rem;
+            }
+        }
+        
+        /* ------------------------------------------------------------------ */
+        /* Desktop/Tablet Navigation (Min Width 769px) */
+        /* ------------------------------------------------------------------ */
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none; /* Hide hamburger menu on larger screens */
+            }
+
+            nav ul {
+                display: flex !important; /* Force menu to be visible and horizontal */
+                justify-content: center;
+                flex-direction: row;
+            }
+            
+            nav ul li {
+                border-top: none; /* Remove separator lines */
             }
         }
     </style>
@@ -313,6 +316,10 @@
                     <tr>
                         <td>Soil Sampling</td>
                         <td>Soil collection, macro & micro tests available.</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
                         <td>$3.00 - $10.00 /Acre</td>
                     </tr>
                 </tbody>
@@ -384,6 +391,7 @@
         
         // Function to close menu after clicking a link (mobile improvement)
         function closeMenu() {
+            // Check if the screen is mobile size (below 769px) AND the menu is open
             if (window.innerWidth < 769 && navMenu.classList.contains('open')) {
                 navMenu.classList.remove('open');
                 menuToggle.setAttribute('aria-expanded', 'false');
@@ -419,24 +427,28 @@
         // Set active class on scroll
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
-            let current = '';
+            
+            // Only update active class on scroll if the menu is NOT open (to prevent jumpy behavior)
+            if (!navMenu.classList.contains('open')) {
+                let current = '';
+                
+                // Find the section currently in view
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    // Use the view port height as a reference for where 'active' changes
+                    if (pageYOffset >= sectionTop - 150) { 
+                        current = section.getAttribute('id');
+                    }
+                });
 
-            // Find the section currently in view
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                // Use the view port height as a reference for where 'active' changes
-                if (pageYOffset >= sectionTop - 150) { 
-                    current = section.getAttribute('id');
-                }
-            });
-
-            // Update the active nav link
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
+                // Update the active nav link
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            }
         });
     </script>
 
