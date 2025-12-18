@@ -1,502 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="Icon_UPDATED.png" type="image/png">
-    <title>BFS Agriculture - Agri Services & Farm Management</title>
-    <style>
-        /* Color Variables from Logo */
-        :root {
-            --primary-dark-blue: #2A404F;
-            --accent-gold: #BC9C5F;
-            --light-green: #70AD47;
-            --dark-green: #4D7F33;
-            --light-gray: #F0F0F0;
-            --text-color: #333;
-            --white: #FFFFFF;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BFS Agriculture | Services & Management</title>
+  
+  <link rel="icon" href="Icon_UPDATED.png" type="image/png">
+  <link rel="apple-touch-icon" href="Icon_UPDATED.png"> 
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandGreen: '#2D5A27',
+            brandGold: '#E5A524',
+            brandDark: '#1A2E35',
+          }
         }
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--white);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: var(--primary-dark-blue);
-            color: var(--white);
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        header img {
-            max-width: 250px;
-            height: auto;
-            display: block;
-            margin: 0 auto 1rem auto;
-            background-color: var(--light-gray);
-            padding: 10px;
-            border-radius: 8px;
-        }
-
-        /* --- Navigation Improvements for Mobile --- */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            /* Added flex for horizontal alignment on desktop */
-            display: flex; 
-            justify-content: center;
-            background-color: var(--accent-gold);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        /* Menu Toggle Button (Hamburger) */
-        .menu-toggle {
-            display: none; /* Hidden by default, only shown on mobile */
-            background-color: var(--dark-green);
-            color: var(--white);
-            border: none;
-            padding: 1rem;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-left: auto; /* Push to the right */
-        }
-        
-        /* Navigation List */
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        /* Nav Links */
-        nav ul li a {
-            display: block;
-            padding: 1rem 1.5rem;
-            text-decoration: none;
-            color: var(--primary-dark-blue);
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        nav ul li a:hover, nav ul li a.active {
-            background-color: var(--dark-green);
-            color: var(--white);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        section {
-            background-color: var(--light-gray);
-            padding: 2rem;
-            margin-bottom: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        section h2 {
-            color: var(--primary-dark-blue);
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 3px solid var(--accent-gold);
-            padding-bottom: 0.5rem;
-        }
-        
-        /* General Service Layout */
-        .service-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .service-item {
-            background-color: var(--white);
-            padding: 1.5rem;
-            border-radius: 6px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--light-green);
-        }
-
-        .service-item h3 {
-            color: var(--dark-green);
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
-        
-        .service-item p {
-            font-size: 0.95rem;
-        }
-
-        /* The featured-image class is hidden as requested */
-        .featured-image {
-            display: none;
-        }
-
-        /* Pricing Table Styles */
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1.5rem;
-            background-color: var(--white);
-        }
-
-        .pricing-table th, .pricing-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        .pricing-table th {
-            background-color: var(--primary-dark-blue);
-            color: var(--white);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        .pricing-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        .contact-info {
-            text-align: center;
-            margin-top: 2rem;
-            padding: 1rem;
-            background-color: var(--white);
-            border: 1px dashed var(--dark-green);
-            border-radius: 4px;
-        }
-
-        .contact-info p {
-            margin: 0.5rem 0;
-        }
-
-        footer {
-            background-color: var(--primary-dark-blue);
-            color: var(--white);
-            text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 3rem;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            /* Show the hamburger menu button */
-            .menu-toggle {
-                display: block;
-            }
-
-            /* Hide the main nav links by default on mobile */
-            nav ul {
-                display: none;
-                flex-direction: column;
-                align-items: center;
-                width: 100%; /* Take full width below the button */
-                background-color: var(--accent-gold); /* Keep background color */
-            }
-
-            /* Display the nav links when the 'active' class is toggled by JS */
-            nav ul.active {
-                display: flex;
-            }
-
-            nav {
-                /* Change nav to a column layout on mobile to stack button and menu */
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 0;
-            }
-
-            nav ul li a {
-                padding: 0.8rem 1rem;
-                width: 100%; /* Full width links for easier tapping */
-                text-align: center;
-                border-top: 1px solid rgba(42, 64, 79, 0.1); /* Subtle separator */
-            }
-            
-            nav ul li:first-child a {
-                border-top: none;
-            }
-
-            .container {
-                margin: 1rem auto;
-            }
-            section {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    
+    .ag-hero {
+      background: linear-gradient(rgba(26, 46, 53, 0.85), rgba(26, 46, 53, 0.85)), url('Wheat.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    #mobile-menu {
+      transition: max-height 0.3s ease-in-out;
+      max-height: 0;
+      overflow: hidden;
+    }
+    #mobile-menu.open {
+      max-height: 500px;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-900">
 
-    <header>
-        <img src="BFS_AG.png" alt="BFS Agriculture Logo">
-        <p>Farming for a Brighter Future</p>
-    </header>
+  <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="/">
+          <img src="Bright_FS_Shrink.png" alt="Bright Food Systems" class="h-10 md:h-12 w-auto">
+        </a>
+      </div>
 
-    <nav>
-        <button class="menu-toggle" aria-label="Toggle navigation menu">
-            ☰ Menu
-        </button>
-        <ul>
-            <li><a href="#about" class="active">About Us</a></li>
-            <li><a href="#farm-to-owner">Farm to Owner (Management)</a></li>
-            <li><a href="#farm-to-farm">Farm to Farm (Custom Services)</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
-    </nav>
+      <div class="hidden lg:flex space-x-8 font-bold text-brandDark uppercase text-xs tracking-widest items-center">
+        <a href="/" class="hover:text-brandGreen transition">Home</a>
+        <a href="#about" class="hover:text-brandGreen transition">About Us</a>
+        <a href="#farm-to-owner" class="hover:text-brandGreen transition">Management</a>
+        <a href="#farm-to-farm" class="hover:text-brandGreen transition">Custom Services</a>
+        <a href="#contact" class="bg-brandGreen text-white px-6 py-2 rounded shadow-md hover:bg-brandDark transition">Contact</a>
+      </div>
 
-    <div class="container">
-        <section id="about">
-            <h2>About BFS Agriculture</h2>
-
-            <p>BFS Agriculture is the operations branch of a
-multi-generational farm based in Central Pennsylvania. We currently
-manage over 750 acres of row crops, producing corn, soybeans, wheat, and
-a variety of cover and forage crops. These crops support our sister
-dairy and beef operations while also supplying high-quality commodities
-to local food manufacturers.</p>
-
-            <p>As we transition to the next generation of
-leadership, our mission is to expand our management area and serve as a
-trusted partner to help landowners and producers get the most value and
-productivity from their farms. We are committed to land stewardship,
-regenerative practices, and the use of modern agronomic
-technologies.</p>
-        </section>
-
-        <section id="farm-to-owner">
-            <h2>Farm to Owner Services: Land & Farm Management</h2>
-
-            <p>Maximize your agricultural investment with
-professional, transparent, and sustainable farm management. We offer a
-proven track record managing agricultural land with a focus on long-term
-soil health and sustainability.</p>
-            
-            <h3>Management & Lease Options</h3>
-            <div class="service-list">
-                <div class="service-item">
-                    <h3>Cash Rent Agreements</h3>
-                    <p>Guaranteed, on-time payments for a reliable, steady income.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Crop Share Partnerships</h3>
-                    <p>Shared input costs and returns for a fully aligned partnership.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Custom Management Contracts</h3>
-
-                    <p>Tailor-fit management to meet the
-landowner's specific goals. (Terms are negotiable depending on location,
-soil type, and management scope.)</p>
-                </div>
-            </div>
-
-            <h3>Core Management Services</h3>
-            <ul style="list-style-type: disc; color: var(--primary-dark-blue);">
-                <li>Full-season crop management (corn, soybeans, wheat, cover crops).</li>
-                <li>Strategic crop rotation and nutrient planning.</li>
-
-                <li>Precision fertility programs and
-variable-rate application providing soil and water safety.</li>
-                <li>Conservation and soil health management, including buffer and erosion control compliance.</li>
-                <li>Transparent yearly farm reports including yields, inputs, and management profits.</li>
-                <li>Pasture management.</li>
-                <li>On-farm facilities improvement profit share.</li>
-                <li>On-farm well water & septic field soil testing.</li>
-                <li>At-cost equipment rental and use.</li>
-            </ul>
-        </section>
-
-        <section id="farm-to-farm">
-            <h2>Farm to Farm Services: Custom Application & Products</h2>
-
-            <p>We provide fellow producers with custom services
-utilizing reliable equipment and professionally trained staff, paired
-with an adaptive use of precision agriculture and technology.</p>
-
-            <h3>Custom Services & Pricing (Spring 2026)</h3>
-            <table class="pricing-table">
-                <thead>
-                    <tr>
-                        <th>Service</th>
-                        <th>Description</th>
-                        <th>Cost Range</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Fertilizer Application*</td>
-                        <td>Dry broadcast blended P, K, & N.</td>
-                        <td>$9.00 - $11.00 /Acre</td>
-                    </tr>
-                    <tr>
-                        <td>Lime Application*</td>
-                        <td>Broadcast lime, various types.</td>
-                        <td>$10.50 - $11.50 /Ton</td>
-                    </tr>
-                    <tr>
-                        <td>Soil Sampling</td>
-                        <td>Soil collection, macro & micro tests available.</td>
-                        <td>$3.00 - $10.00 /Acre</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="3" style="font-style: italic; font-size: 0.9em;">
-
-                            *Variable rate services available with soil
-sampling or harvest removal data. Prices are subject to change based on
-actual quantities.
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-
-            <h3>Products Offered</h3>
-            <div class="service-list">
-                <div class="service-item" style="border-left: 5px solid var(--accent-gold);">
-                    <h3>Seed Corn & Soybean</h3>
-                    <p>Seed Consultants Central Pennsylvania Varieties.</p>
-                </div>
-                <div class="service-item" style="border-left: 5px solid var(--accent-gold);">
-                    <h3>Seed Wheat</h3>
-                    <p>BFS Hybrids Certified Wheat Varieties. *Availability varies based on demand.</p>
-                </div>
-                <div class="service-item" style="border-left: 5px solid var(--accent-gold);">
-                    <h3>Fertilizer Brokering</h3>
-                    <p>Sources cheapest N, P, & K dry fertilizers from a variety of suppliers.</p>
-                </div>
-            </div>
-            
-
-            <p style="margin-top: 2rem;">Terms & Conditions
-Summary: Payment is due within 30 days of receiving the invoice.
-Services are scheduled seasonally and may vary due to weather or
-availability. Cancellations require 48-hour notice to avoid charges.
-Liability for crop loss or damage due to uncontrollable factors is
-excluded. Soil sampling results are advisory only.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact BFS Agriculture</h2>
-
-            <p style="text-align: center;">For inquiries or to
-discuss farm management and service opportunities, please contact
-us:</p>
-
-            <div class="contact-info">
-                <h3>General & Farm Management Inquiries</h3>
-                <p><strong>Charles Sebright</strong></p>
-                <p>Operations & Land Management</p>
-
-                <p><strong>Phone:</strong> <a
-href="tel:7173164703" style="color: var(--primary-dark-blue);
-text-decoration: none;">(717) 316-4703</a></p>
-
-                <p><strong>Email:</strong> <a
-href="mailto:Csebright@bright-fs.com" style="color:
-var(--primary-dark-blue); text-decoration:
-none;">Csebright@bright-fs.com</a></p>
-            </div>
-            
-            <div class="contact-info" style="margin-top: 1rem;">
-                <h3>Job-Specific Pricing & Service Inquiries</h3>
-
-                <p>Contact an agronomist with the requested
-services, total acreage, field location(s), and preferred service
-timeline.</p>
-
-                <p><strong>Sales Email:</strong>
-<a href="mailto:Ag_sales@bright-fs.com" style="color:
-var(--dark-green); text-decoration:
-none;">Ag_sales@bright-fs.com</a></p>
-            </div>
-        </section>
+      <button id="menu-btn" class="lg:hidden p-2 text-brandDark focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
     </div>
 
-    <footer>
+    <div id="mobile-menu" class="lg:hidden bg-slate-50 border-t border-slate-200">
+      <div class="flex flex-col p-6 space-y-4 font-bold text-brandDark uppercase text-sm">
+        <a href="/">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#farm-to-owner">Management</a>
+        <a href="#farm-to-farm">Custom Services</a>
+        <a href="#contact" class="text-brandGreen">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-        <p>&copy; 2023 BFS Agriculture. All rights reserved. |
-<a href="mailto:Csebright@bright-fs.com" style="color:
-var(--accent-gold); text-decoration: none;">Email
-Us</a></p>
-    </footer>
+  <header class="ag-hero text-white py-20 md:py-32 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-block border border-brandGold text-brandGold px-4 py-1 rounded-full text-[10px] font-black mb-6 uppercase tracking-[0.3em]">
+        Farming for a Brighter Future
+      </div>
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+        Agricultural <span class="text-brandGold">Services</span> <br> & Land Management
+      </h1>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto font-light">
+        Trusted partners in Central Pennsylvania, helping landowners and producers maximize productivity through modern agronomic technology.
+      </p>
+    </div>
+  </header>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+  <main class="max-w-7xl mx-auto px-6 py-16">
+    
+    <section id="about" class="mb-24">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+            <h2 class="text-brandDark text-3xl font-black mb-6 uppercase tracking-tight">About BFS Agriculture</h2>
+            <div class="w-16 h-1 bg-brandGold mb-6"></div>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+                BFS Agriculture is the operations branch of a multi-generational farm based in Central Pennsylvania. We currently manage over 750 acres of row crops, producing corn, soybeans, wheat, and a variety of cover and forage crops.
+            </p>
+            <p class="text-slate-600 leading-relaxed">
+                Our mission is to expand our management area and serve as a trusted partner to help landowners and producers get the most value from their farms through land stewardship and regenerative practices.
+            </p>
+        </div>
+        <div class="bg-brandDark p-8 rounded-2xl shadow-xl">
+            <h4 class="text-brandGold font-bold mb-4 italic">Core Commitments:</h4>
+            <ul class="space-y-3 text-slate-300 text-sm">
+                <li class="flex items-start gap-3"><span class="text-brandGreen">✔</span> Multi-generational expertise</li>
+                <li class="flex items-start gap-3"><span class="text-brandGreen">✔</span> Regenerative soil practices</li>
+                <li class="flex items-start gap-3"><span class="text-brandGreen">✔</span> Modern agronomic technologies</li>
+                <li class="flex items-start gap-3"><span class="text-brandGreen">✔</span> Local food manufacturer supply chain</li>
+            </ul>
+        </div>
+      </div>
+    </section>
 
-                // 1. Hide the menu after a link is clicked on mobile
-                const navUl = document.querySelector('nav ul');
-                if (window.innerWidth <= 768) {
-                    navUl.classList.remove('active');
-                }
-                // 2. Set active class
-                document.querySelector('nav a.active')?.classList.remove('active');
-                this.classList.add('active');
+    <section id="farm-to-owner" class="mb-24 pt-12 border-t border-slate-200">
+      <div class="text-center mb-12">
+        <h2 class="text-brandDark text-3xl font-black uppercase">Farm to Owner Services</h2>
+        <p class="text-slate-500 mt-2">Land & Farm Management</p>
+      </div>
 
-                // 3. Smooth scroll
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <div class="bg-white p-8 rounded-xl shadow-sm border-t-4 border-brandGreen">
+          <h3 class="text-brandDark font-bold text-xl mb-3">Cash Rent Agreements</h3>
+          <p class="text-slate-600 text-sm">Guaranteed, on-time payments for a reliable, steady income for landowners.</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-sm border-t-4 border-brandGold">
+          <h3 class="text-brandDark font-bold text-xl mb-3">Crop Share Partnerships</h3>
+          <p class="text-slate-600 text-sm">Shared input costs and returns for a fully aligned, collaborative partnership.</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-sm border-t-4 border-brandDark">
+          <h3 class="text-brandDark font-bold text-xl mb-3">Custom Management</h3>
+          <p class="text-slate-600 text-sm">Tailor-fit management to meet specific landowner goals, negotiable by location.</p>
+        </div>
+      </div>
 
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70, // Adjust for sticky nav height
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+      <div class="bg-slate-100 p-8 rounded-2xl">
+        <h3 class="text-brandDark font-bold mb-6 text-center uppercase tracking-widest text-sm">Core Management Scope</h3>
+        <div class="grid md:grid-cols-2 gap-x-12 gap-y-4">
+            <div class="flex items-center gap-3 text-slate-700 text-sm"><div class="w-1.5 h-1.5 bg-brandGold rounded-full"></div> Strategic crop rotation & nutrient planning</div>
+            <div class="flex items-center gap-3 text-slate-700 text-sm"><div class="w-1.5 h-1.5 bg-brandGold rounded-full"></div> Precision fertility & variable-rate application</div>
+            <div class="flex items-center gap-3 text-slate-700 text-sm"><div class="w-1.5 h-1.5 bg-brandGold rounded-full"></div> Soil health & erosion control compliance</div>
+            <div class="flex items-center gap-3 text-slate-700 text-sm"><div class="w-1.5 h-1.5 bg-brandGold rounded-full"></div> Transparent yearly yield & profit reports</div>
+            <div class="flex items-center gap-3 text-slate-700 text-sm"><div class="w-1.5 h-1.5 bg-brandGold rounded-full"></div> On-farm facilities improvement profit share</div>
+            <div class="flex items-center gap-3 text-slate-700 text-sm"><div class="w-1.5 h-1.5 bg-brandGold rounded-full"></div> Well water & septic field soil testing</div>
+        </div>
+      </div>
+    </section>
 
-        // Set active class on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
-            let current = '';
+    <section id="farm-to-farm" class="mb-24 pt-12 border-t border-slate-200">
+      <div class="text-center mb-12">
+        <h2 class="text-brandDark text-3xl font-black uppercase">Farm to Farm Services</h2>
+        <p class="text-slate-500 mt-2">Custom Application & Products (Spring 2026)</p>
+      </div>
 
-            // Find the section currently in view
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                // Use the view port height as a reference for where 'active' changes
-                if (pageYOffset >= sectionTop - 150) { 
-                    current = section.getAttribute('id');
-                }
-            });
+      <div class="overflow-x-auto bg-white rounded-xl shadow-lg mb-12">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-brandDark text-white uppercase text-[10px] tracking-widest">
+              <th class="px-6 py-4">Service</th>
+              <th class="px-6 py-4">Description</th>
+              <th class="px-6 py-4">Cost Range</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm">
+            <tr class="border-b border-slate-100 hover:bg-slate-50 transition">
+              <td class="px-6 py-4 font-bold text-brandGreen">Fertilizer Application*</td>
+              <td class="px-6 py-4 text-slate-600">Dry broadcast blended P, K, & N.</td>
+              <td class="px-6 py-4 font-semibold">$9.00 - $11.00 /Acre</td>
+            </tr>
+            <tr class="border-b border-slate-100 hover:bg-slate-50 transition">
+              <td class="px-6 py-4 font-bold text-brandGreen">Lime Application*</td>
+              <td class="px-6 py-4 text-slate-600">Broadcast lime, various types.</td>
+              <td class="px-6 py-4 font-semibold">$10.50 - $11.50 /Ton</td>
+            </tr>
+            <tr class="hover:bg-slate-50 transition">
+              <td class="px-6 py-4 font-bold text-brandGreen">Soil Sampling</td>
+              <td class="px-6 py-4 text-slate-600">Soil collection, macro & micro tests available.</td>
+              <td class="px-6 py-4 font-semibold">$3.00 - $10.00 /Acre</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="px-6 py-3 bg-slate-50 text-[10px] italic text-slate-400">
+            *Variable rate services available with soil sampling or harvest removal data. Prices are subject to change based on actual quantities.
+        </div>
+      </div>
 
-            // Update the active nav link
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="border border-slate-200 p-6 rounded-lg hover:border-brandGold transition">
+            <h4 class="font-bold text-brandDark mb-2 uppercase text-xs tracking-wider">Seed Products</h4>
+            <p class="text-sm text-slate-600 italic">Seed Consultants & BFS Hybrids Certified Varieties.</p>
+        </div>
+        <div class="border border-slate-200 p-6 rounded-lg hover:border-brandGold transition">
+            <h4 class="font-bold text-brandDark mb-2 uppercase text-xs tracking-wider">Fertilizer Brokering</h4>
+            <p class="text-sm text-slate-600 italic">Dry fertilizers sourced for the best market price.</p>
+        </div>
+        <div class="border border-slate-200 p-6 rounded-lg hover:border-brandGold transition">
+            <h4 class="font-bold text-brandDark mb-2 uppercase text-xs tracking-wider">Custom Terms</h4>
+            <p class="text-sm text-slate-600 italic">Payment due within 30 days. Weather dependent scheduling.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-slate-100 rounded-3xl p-8 md:p-16 text-center">
+        <h2 class="text-brandDark text-3xl font-black uppercase mb-4">Work With Us</h2>
+        <p class="text-slate-600 mb-10 max-w-xl mx-auto">Get a specialized quote for your field location and timeline.</p>
         
-        // --- NEW JAVASCRIPT FOR MOBILE MENU TOGGLE ---
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navUl = document.querySelector('nav ul');
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+            <div class="bg-white p-8 rounded-2xl shadow-sm">
+                <p class="text-[10px] font-black text-brandGreen uppercase mb-2">Management Inquiries</p>
+                <p class="text-brandDark font-bold text-lg">Charles Sebright</p>
+                <p class="text-slate-500 text-sm mb-4">Operations & Land Management</p>
+                <a href="tel:7173164703" class="block text-brandDark font-bold hover:text-brandGold transition text-sm mb-1">(717) 316-4703</a>
+                <a href="mailto:Csebright@bright-fs.com" class="block text-brandGreen font-bold hover:underline text-sm">Csebright@bright-fs.com</a>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm">
+                <p class="text-[10px] font-black text-brandGreen uppercase mb-2">Service Pricing</p>
+                <p class="text-brandDark font-bold text-lg">Agronomy Sales</p>
+                <p class="text-slate-500 text-sm mb-4">Custom Quotes & Scheduling</p>
+                <a href="mailto:Ag_sales@bright-fs.com" class="block text-brandGreen font-bold hover:underline text-sm break-all">Ag_sales@bright-fs.com</a>
+            </div>
+        </div>
+    </section>
 
-        menuToggle.addEventListener('click', () => {
-            navUl.classList.toggle('active');
-        });
-        // --- END NEW JAVASCRIPT ---
-    </script>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-12 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <img src="Bright_FS_Shrink.png" alt="Logo" class="h-8">
+      <p class="text-slate-400 text-[10px] uppercase tracking-[0.4em] text-center md:text-right">&copy; 2024 Bright Food Systems / BFS Agriculture</p>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle Mobile Menu
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+    
+    // Close menu on link click
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => menu.classList.remove('open'));
+    });
+  </script>
 
 </body>
 </html>
