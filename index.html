@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bright Food Systems | Feeding the Future</title>
+  <title>Bright Food Systems | Innovation for a Brighter Future</title>
   
   <link rel="icon" href="Icon_UPDATED.png" type="image/png">
   <link rel="apple-touch-icon" href="Icon_UPDATED.png"> 
@@ -26,155 +26,164 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
     body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
     .hero-gradient {
-      background: linear-gradient(rgba(26, 46, 53, 0.88), rgba(26, 46, 53, 0.88)), url('https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&q=80');
+      background: linear-gradient(rgba(26, 46, 53, 0.9), rgba(26, 46, 53, 0.9)), url('https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&q=80');
       background-size: cover;
       background-position: center;
     }
-    /* Smooth mobile menu transition */
     #mobile-menu {
-      transition: all 0.3s ease-in-out;
+      transition: max-height 0.3s ease-in-out;
       max-height: 0;
       overflow: hidden;
     }
     #mobile-menu.open {
-      max-height: 400px;
-      padding-bottom: 1.5rem;
+      max-height: 500px;
     }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
-  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+  <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex justify-between items-center">
       <div class="flex items-center">
-        <img src="Bright_FS_Shrink.png" alt="Bright Food Systems" class="h-10 md:h-12 w-auto">
+        <a href="/">
+          <img src="Bright_FS_Shrink.png" alt="Bright Food Systems" class="h-10 md:h-12 w-auto">
+        </a>
       </div>
 
-      <div class="hidden lg:flex space-x-8 font-semibold text-brandDark uppercase text-xs tracking-widest items-center">
+      <div class="hidden lg:flex space-x-8 font-bold text-brandDark uppercase text-xs tracking-widest items-center">
         <a href="#about" class="hover:text-brandGreen transition">About Us</a>
-        <a href="/agriculture" class="hover:text-brandGreen transition">Ag Automation</a>
-        <a href="/Food" class="hover:text-brandGreen transition">Manufacturing</a>
-        <a href="/Services" class="hover:text-brandGreen transition">Services</a>
-        <a href="#contact" class="bg-brandGreen text-white px-5 py-2 rounded-md hover:bg-brandDark transition shadow-sm">Contact</a>
+        <a href="/agriculture" class="hover:text-brandGreen transition">Farm Automation</a>
+        <a href="/Food" class="hover:text-brandGreen transition">Food Manufacturer</a>
+        <a href="/agriculture" class="hover:text-brandGreen transition border-b-2 border-brandGold pb-1">Services</a>
+        <a href="#contact" class="bg-brandGreen text-white px-6 py-2 rounded shadow-md hover:bg-brandDark transition">Contact</a>
       </div>
 
-      <button id="menu-btn" class="lg:hidden flex flex-col space-y-1.5 p-2 focus:outline-none" aria-label="Toggle Menu">
-        <span class="w-6 h-0.5 bg-brandDark"></span>
-        <span class="w-6 h-0.5 bg-brandDark"></span>
-        <span class="w-6 h-0.5 bg-brandDark"></span>
+      <button id="menu-btn" class="lg:hidden p-2 text-brandDark focus:outline-none" aria-label="Toggle Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </div>
 
-    <div id="mobile-menu" class="lg:hidden bg-white px-6 shadow-inner">
-      <div class="flex flex-col space-y-4 pt-2 font-bold text-brandDark uppercase text-sm tracking-wider">
-        <a href="#about" class="border-b border-slate-100 py-2">About Us</a>
-        <a href="/agriculture" class="border-b border-slate-100 py-2">Ag Automation</a>
-        <a href="/Food" class="border-b border-slate-100 py-2">Manufacturing</a>
-        <a href="/Services" class="border-b border-slate-100 py-2">Services</a>
-        <a href="#contact" class="text-brandGreen py-2">Contact Us</a>
+    <div id="mobile-menu" class="lg:hidden bg-slate-50 border-t border-slate-200">
+      <div class="flex flex-col p-6 space-y-4 font-bold text-brandDark uppercase text-sm">
+        <a href="#about">About Us</a>
+        <a href="/agriculture">Farm Automation</a>
+        <a href="/Food">Food Manufacturer Automation</a>
+        <a href="/agriculture">Agricultural Services</a>
+        <a href="#contact" class="text-brandGreen">Contact</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero-gradient text-white py-16 md:py-32 px-6">
+  <header class="hero-gradient text-white py-20 md:py-32 px-6">
     <div class="max-w-5xl mx-auto text-center">
-      <div class="inline-block bg-brandGold text-brandDark px-4 py-1 rounded-full text-[10px] md:text-xs font-black mb-6 uppercase tracking-[0.2em]">
-        Feeding the Future
+      <div class="inline-block border border-brandGold text-brandGold px-4 py-1 rounded-full text-[10px] font-black mb-6 uppercase tracking-[0.3em]">
+        Innovation for a Brighter Future
       </div>
-      <h1 class="text-3xl md:text-6xl font-extrabold mb-6 leading-tight">
-        Next-Gen <span class="text-brandGold">Automation</span> <br class="md:hidden"> for Farm & Factory
+      <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">
+        Next-Gen <span class="text-brandGold">Automation</span> <br> for Food & Fuel
       </h1>
-      <p class="text-base md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-        Precision robotics and smart systems integrated into the heart of agricultural production.
+      <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+        Leading the industry in greenhouse automation, green agriculture systems, and comprehensive manufacturing solutions.
       </p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
-        <a href="/Services" class="bg-brandGold text-brandDark px-8 py-4 rounded-lg font-bold hover:scale-105 transition shadow-lg text-center">Our Solutions</a>
-        <a href="#about" class="bg-white/10 border border-white/20 px-8 py-4 rounded-lg font-bold hover:bg-white/20 transition text-center">Our History</a>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/agriculture" class="bg-brandGold text-brandDark px-10 py-4 rounded font-bold hover:bg-yellow-500 transition shadow-lg">Explore Services</a>
+        <a href="#contact" class="bg-white/10 backdrop-blur-md border border-white/20 px-10 py-4 rounded font-bold hover:bg-white/20 transition">Get a Consultation</a>
       </div>
     </div>
   </header>
 
-  <section class="py-16 md:py-24 px-6 max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 class="text-brandDark text-3xl md:text-4xl font-bold mb-4">Core Expertise</h2>
-      <div class="w-16 h-1 bg-brandGold mx-auto"></div>
+  <section class="py-20 md:py-28 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-brandDark text-3xl md:text-5xl font-black mb-4 uppercase">Company Expertise</h2>
+      <div class="w-20 h-1.5 bg-brandGold mx-auto"></div>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 flex flex-col justify-between hover:shadow-md transition">
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border-t-8 border-brandGreen p-8 group flex flex-col justify-between">
         <div>
-          <div class="w-12 h-1 bg-brandGreen mb-6"></div>
-          <h3 class="text-xl font-bold text-brandDark mb-4 italic">Ag & Greenhouse Automation</h3>
-          <p class="text-slate-600 mb-6 text-sm leading-relaxed">
-            Revolutionizing green agriculture with smart greenhouse controls and field robotics to maximize resource efficiency.
+          <h3 class="text-2xl font-bold text-brandDark mb-4 italic">Farm Automation</h3>
+          <p class="text-slate-600 mb-8 leading-relaxed">
+            Implementing precision <strong>Greenhouse Automation</strong> and <strong>Green Agriculture</strong> tech. Our autonomous systems optimize climate and irrigation to secure your yields.
           </p>
         </div>
-        <a href="/agriculture" class="text-brandGreen font-bold text-sm">Explore Tech &rarr;</a>
+        <a href="/agriculture" class="inline-block text-brandGreen font-bold group-hover:underline transition-all">Go to Farm Tech &rarr;</a>
       </div>
 
-      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 flex flex-col justify-between hover:shadow-md transition">
+      <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border-t-8 border-brandDark p-8 group flex flex-col justify-between">
         <div>
-          <div class="w-12 h-1 bg-brandDark mb-6"></div>
-          <h3 class="text-xl font-bold text-brandDark mb-4 italic">Food Manufacturing</h3>
-          <p class="text-slate-600 mb-6 text-sm leading-relaxed">
-            Streamlining farm-to-fork production with industrial automation and custom processing line robotics.
+          <h3 class="text-2xl font-bold text-brandDark mb-4 italic">Food Manufacturer Automation</h3>
+          <p class="text-slate-600 mb-8 leading-relaxed">
+            Scalable processing solutions for the food and fuel sectors. We design custom industrial robotics that bridge the gap between farm output and consumer-ready products.
           </p>
         </div>
-        <a href="/Food" class="text-brandDark font-bold text-sm">Process Solutions &rarr;</a>
+        <a href="/Food" class="inline-block text-brandDark font-bold group-hover:underline transition-all">Explore Manufacturing &rarr;</a>
       </div>
 
-      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 flex flex-col justify-between hover:shadow-md transition md:col-span-2 lg:col-span-1">
+      <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border-t-8 border-brandGold p-8 group flex flex-col justify-between">
         <div>
-          <div class="w-12 h-1 bg-brandGold mb-6"></div>
-          <h3 class="text-xl font-bold text-brandDark mb-4 italic">Ag Food & Fuel Services</h3>
-          <p class="text-slate-600 mb-6 text-sm leading-relaxed">
-            Expert soil sampling, custom ag operations, on-farm milling, and localized manufacturing solutions.
+          <h3 class="text-2xl font-bold text-brandDark mb-4 italic">Agricultural Services</h3>
+          <p class="text-slate-600 mb-8 leading-relaxed">
+            Specialized support including <strong>custom ag operations, soil sampling, on-farm milling,</strong> and specialized food manufacturing solutions tailored to your unique site requirements.
           </p>
         </div>
-        <a href="/Services" class="text-brandGold font-bold text-sm">View All Services &rarr;</a>
+        <a href="/agriculture" class="inline-block text-brandGold font-bold group-hover:underline transition-all">View All Services &rarr;</a>
       </div>
+
     </div>
   </section>
 
-  <section id="about" class="bg-brandDark text-white py-16 md:py-24 px-6 overflow-hidden">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-      <div class="w-full md:w-1/2">
-        <h2 class="text-brandGold text-xs font-black uppercase tracking-widest mb-4 text-center md:text-left">Our History</h2>
-        <h3 class="text-3xl md:text-4xl font-bold mb-6 text-center md:text-left">Rooted in Tradition, Driven by Tech</h3>
-        <p class="text-slate-300 text-base md:text-lg leading-relaxed mb-6">
-          Bright Food Systems bridges the gap between raw agricultural potential and refined food manufacturing. We founded this company to give modern producers the automation tools needed to thrive.
+  <section id="about" class="bg-brandDark text-white py-24 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16">
+      <div class="md:w-1/2">
+        <h2 class="text-brandGold text-sm font-black uppercase tracking-widest mb-4">History</h2>
+        <h3 class="text-3xl md:text-5xl font-bold mb-8">Rooted in Field Experience</h3>
+        <p class="text-slate-300 text-lg leading-relaxed mb-6 italic border-l-4 border-brandGreen pl-6">
+          Founded to solve the specific bottlenecks between harvesting and processing.
+        </p>
+        <p class="text-slate-300 text-lg leading-relaxed font-light">
+          Bright Food Systems has grown from a local automation shop to a leader in smart ag tech, focusing on the future of food and fuel manufacturing.
         </p>
       </div>
-      <div class="w-full md:w-1/2 flex justify-center">
-        <img src="Bright_FS.png" alt="Company Logo" class="w-64 md:w-80 opacity-90 brightness-110">
+      <div class="md:w-1/2 flex justify-center">
+        <img src="Bright_FS.png" alt="Bright Food Systems Logo" class="w-full max-w-sm drop-shadow-2xl">
       </div>
     </div>
   </section>
 
-  <footer id="contact" class="bg-white border-t border-slate-200 py-12 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col items-center">
-      <img src="Icon_UPDATED.png" alt="Icon" class="h-10 mb-6">
-      <h4 class="text-brandDark font-bold text-lg mb-2">Bright Food Systems</h4>
-      <p class="text-slate-500 text-sm mb-6 text-center">Innovative solutions for Green Agriculture and Industrial Processing.</p>
-      <a href="mailto:info@brightfoodsystems.com" class="text-brandGreen font-bold border-b-2 border-brandGreen pb-1 mb-8">Get In Touch</a>
-      <p class="text-slate-400 text-[10px] uppercase tracking-widest">&copy; 2024 Bright Food Systems</p>
+  <section id="contact" class="py-24 px-6 text-center bg-slate-100">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-4xl font-black text-brandDark mb-6 uppercase">Contact Us</h2>
+      <p class="text-slate-600 mb-10 text-lg">Let’s discuss your automation and milling requirements.</p>
+      <div class="grid md:grid-cols-2 gap-4 text-left">
+        <div class="bg-white p-6 rounded-xl border border-slate-200">
+          <p class="text-[10px] font-black text-brandGreen uppercase mb-2">Technical Sales</p>
+          <p class="text-brandDark font-bold">sales@brightfoodsystems.com</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-slate-200">
+          <p class="text-[10px] font-black text-brandGreen uppercase mb-2">General Inquiry</p>
+          <p class="text-brandDark font-bold">info@brightfoodsystems.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-white border-t border-slate-200 py-12 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <img src="Bright_FS_Shrink.png" alt="Logo" class="h-8 opacity-40 grayscale">
+      <p class="text-slate-400 text-[10px] uppercase tracking-[0.4em]">&copy; 2024 Bright Food Systems | Feeding the Future</p>
     </div>
   </footer>
 
   <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('open');
     });
-
-    // Close menu when a link is clicked
-    const links = mobileMenu.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-      });
+    // Close menu on link click
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => menu.classList.remove('open'));
     });
   </script>
 
