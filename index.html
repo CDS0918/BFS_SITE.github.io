@@ -38,6 +38,17 @@
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
+
+    /* Mobile Menu Animation */
+    #mobile-menu {
+      transition: all 0.3s ease-in-out;
+      max-height: 0;
+      overflow: hidden;
+    }
+    #mobile-menu.open {
+      max-height: 500px;
+      border-bottom-width: 1px;
+    }
   </style>
 </head>
 <body class="bg-white text-slate-900">
@@ -55,9 +66,22 @@
         <a href="#contact" class="bg-brandDark text-white px-6 py-2.5 rounded-full hover:bg-brandGreen transition shadow-md">Schedule System Audit</a>
       </div>
 
-      <button id="menu-btn" class="lg:hidden p-2 text-brandDark">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"></path></svg>
+      <button id="menu-btn" class="lg:hidden p-2 text-brandDark focus:outline-none">
+        <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="path-top" d="M4 6h16" stroke-width="2" stroke-linecap="round" class="transition-all duration-300 origin-center"></path>
+          <path id="path-mid" d="M4 12h16" stroke-width="2" stroke-linecap="round" class="transition-all duration-300"></path>
+          <path id="path-bot" d="M4 18h16" stroke-width="2" stroke-linecap="round" class="transition-all duration-300 origin-center"></path>
+        </svg>
       </button>
+    </div>
+
+    <div id="mobile-menu" class="lg:hidden bg-white border-slate-200">
+      <div class="flex flex-col px-6 py-8 space-y-6 font-bold text-brandDark uppercase text-[12px] tracking-widest">
+        <a href="#solutions" class="mobile-link hover:text-brandGreen transition">Industrial Solutions</a>
+        <a href="food_manufacturers/food_manufacturer.html" class="mobile-link hover:text-brandGreen transition">Manufacturing</a>
+        <a href="agriculture/index.html" class="mobile-link hover:text-brandGreen transition">Ag Services</a>
+        <a href="#contact" class="mobile-link bg-brandDark text-white px-6 py-4 rounded-xl text-center shadow-md hover:bg-brandGreen transition">Schedule System Audit</a>
+      </div>
     </div>
   </nav>
 
@@ -212,9 +236,41 @@
 
   <script>
     const btn = document.getElementById('menu-btn');
-    // Mobile menu logic 
-    btn.addEventListener('click', () => {
-      alert('Mobile menu placeholder: This would trigger a full-screen navigation overlay.');
+    const menu = document.getElementById('mobile-menu');
+    const pathTop = document.getElementById('path-top');
+    const pathMid = document.getElementById('path-mid');
+    const pathBot = document.getElementById('path-bot');
+    const links = document.querySelectorAll('.mobile-link');
+
+    function toggleMenu() {
+      const isOpen = menu.classList.contains('open');
+      
+      if (isOpen) {
+        // Close Menu
+        menu.classList.remove('open');
+        // Reset Icon to Hamburger
+        pathTop.setAttribute('d', 'M4 6h16');
+        pathTop.style.transform = 'rotate(0deg) translateY(0px)';
+        pathMid.style.opacity = '1';
+        pathBot.setAttribute('d', 'M4 18h16');
+        pathBot.style.transform = 'rotate(0deg) translateY(0px)';
+      } else {
+        // Open Menu
+        menu.classList.add('open');
+        // Transform Icon to X
+        pathTop.style.transform = 'rotate(45deg) translateY(8.5px)';
+        pathMid.style.opacity = '0';
+        pathBot.style.transform = 'rotate(-45deg) translateY(-8.5px)';
+      }
+    }
+
+    btn.addEventListener('click', toggleMenu);
+
+    // Close menu when a link is clicked
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        if (menu.classList.contains('open')) toggleMenu();
+      });
     });
   </script>
 
