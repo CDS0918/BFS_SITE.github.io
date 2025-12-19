@@ -3,11 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bright Food Systems</title>
-  
-  <link rel="icon" href="Icon_UPDATED.png" type="image/png">
-  <link rel="apple-touch-icon" href="Icon_UPDATED.png"> 
-  
+  <title>Bright Food Systems | The Future of Autonomous Food</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -17,161 +13,159 @@
             brandGreen: '#2D5A27',
             brandGold: '#E5A524',
             brandDark: '#1A2E35',
+            accentGray: '#F8FAFC',
           }
         }
       }
     }
   </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
-    .hero-gradient {
-      background: linear-gradient(rgba(26, 46, 53, 0.9), rgba(26, 46, 53, 0.9)), url('https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&q=80');
-      background-size: cover;
-      background-position: center;
-    }
-    #mobile-menu {
-      transition: max-height 0.3s ease-in-out;
-      max-height: 0;
-      overflow: hidden;
-    }
-    #mobile-menu.open {
-      max-height: 500px;
+    body { font-family: 'Inter', sans-serif; }
+    .hero-bg {
+      background: linear-gradient(rgba(26, 46, 53, 0.85), rgba(26, 46, 53, 0.85)), url('https://images.unsplash.com/photo-1594771804886-a933bb2d609b?auto=format&fit=crop&q=80');
+      background-size: cover; background-position: center;
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-white text-slate-900">
 
-  <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex justify-between items-center">
-      <div class="flex items-center">
-        <a href="/">
-          <img src="Bright_FS_Shrink.png" alt="Bright Food Systems" class="h-10 md:h-12 w-auto">
-        </a>
-      </div>
-
-      <div class="hidden lg:flex space-x-8 font-bold text-brandDark uppercase text-xs tracking-widest items-center">
-        <a href="#about" class="hover:text-brandGreen transition">About Us</a>
-        <a href="/Automation" class="hover:text-brandGreen transition">Farm Automation</a>
-        <a href="/Food" class="hover:text-brandGreen transition">Food Manufacturer</a>
-        <a href="/agriculture" class="hover:text-brandGreen transition">Ag Services</a>
-        <a href="#contact" class="bg-brandGreen text-white px-6 py-2 rounded shadow-md hover:bg-brandDark transition">Contact</a>
-      </div>
-
-      <button id="menu-btn" class="lg:hidden p-2 text-brandDark focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-      </button>
-    </div>
-
-    <div id="mobile-menu" class="lg:hidden bg-slate-50 border-t border-slate-200">
-      <div class="flex flex-col p-6 space-y-4 font-bold text-brandDark uppercase text-sm">
-        <a href="#about">About Us</a>
-        <a href="/Automation">Farm Automation</a>
-        <a href="/Food">Food Manufacturer Automation</a>
-        <a href="/agriculture">Agricultural Services</a>
-        <a href="#contact" class="text-brandGreen">Contact</a>
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+      <a href="/"><img src="Bright_FS_Shrink.png" alt="BFS" class="h-10"></a>
+      <div class="hidden lg:flex space-x-8 font-bold text-brandDark uppercase text-[11px] tracking-widest items-center">
+        <a href="#vision" class="hover:text-brandGreen">The Vision</a>
+        <a href="/Automation" class="hover:text-brandGreen">Farm Tech</a>
+        <a href="/Food" class="hover:text-brandGreen">Manufacturing</a>
+        <a href="/agriculture" class="hover:text-brandGreen">Ag Services</a>
+        <a href="#contact" class="bg-brandGold text-brandDark px-5 py-2 rounded-full hover:shadow-lg transition">Request Audit</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero-gradient text-white py-24 md:py-36 px-6">
-    <div class="max-w-5xl mx-auto text-center">
-      <div class="inline-block border border-brandGold text-brandGold px-4 py-1 rounded-full text-[10px] font-black mb-6 uppercase tracking-[0.3em]">
-        Feeding The Future Through Automation
-      </div>
-      <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">
-        Next-Gen <span class="text-brandGold">Automation</span> <br> for Food Production
-      </h1>
-        <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
-          Optimizing the agricultural lifecycle through integrated data collection, precision batch monitoring, and custom-engineered processing solutions.
+  <header class="hero-bg text-white py-32 md:py-48 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight">
+          Feeding the Future Through <span class="text-brandGold">Intelligence.</span>
+        </h1>
+        <p class="text-xl text-slate-300 mb-10 leading-relaxed font-light">
+          BFS is closing the gap between farmer and consumer. We retrofit legacy infrastructure with AI-driven sensing to drive down prices, ensure FSMA 204 compliance, and pave the way for <strong>lights-out food production.</strong>
         </p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#expertise" class="bg-brandGold text-brandDark px-10 py-4 rounded font-bold hover:bg-yellow-500 transition shadow-lg">Explore Services</a>
-        <a href="#contact" class="bg-white/10 backdrop-blur-md border border-white/20 px-10 py-4 rounded font-bold hover:bg-white/20 transition">Get a Consultation</a>
+        <div class="flex flex-col sm:flex-row gap-5">
+          <a href="#compliance" class="bg-brandGreen text-white px-10 py-5 rounded-xl font-bold text-center hover:bg-brandDark transition shadow-2xl">
+            Start 2028 Compliance
+          </a>
+          <a href="#vision" class="bg-white/10 border border-white/20 backdrop-blur-md px-10 py-5 rounded-xl font-bold text-center hover:bg-white/20 transition">
+            Explore the Vision
+          </a>
+        </div>
       </div>
     </div>
   </header>
 
-  <section id="expertise" class="py-20 md:py-28 px-6 max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-brandDark text-3xl md:text-5xl font-black mb-4 uppercase">Company Expertise</h2>
-      <div class="w-20 h-1.5 bg-brandGold mx-auto"></div>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-8">
-      
-      <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border-t-8 border-brandGreen p-8 group flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-bold text-brandDark mb-4 italic">Farm Automation</h3>
-          <p class="text-slate-600 mb-8 leading-relaxed">
-            Pioneering <strong>Custom Farm Automation</strong> and <strong>Data Management Systems</strong>. Our autonomous systems max out operation efficiency to secure your yields and profits.
-          </p>
-        </div>
-        <a href="/Automation" class="inline-block text-brandGreen font-bold group-hover:underline transition-all">Go to Farm Tech &rarr;</a>
+  <section id="compliance" class="bg-accentGray py-12 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div class="flex items-center gap-4">
+        <span class="bg-red-600 text-white text-xs font-black px-3 py-1 rounded">URGENT</span>
+        <p class="text-sm font-bold text-brandDark uppercase tracking-wider">FSMA 204 Readiness Center</p>
       </div>
-
-      <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border-t-8 border-brandDark p-8 group flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-bold text-brandDark mb-4 italic">Food Manufacturer Automation</h3>
-          <p class="text-slate-600 mb-8 leading-relaxed">
-            Scalable processing solutions for food manufacturers. We design custom industrial automation that bridge the gap between farm output and consumer-ready products.
-          </p>
-        </div>
-        <a href="/Food" class="inline-block text-brandDark font-bold group-hover:underline transition-all">Explore Manufacturing &rarr;</a>
-      </div>
-
-      <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border-t-8 border-brandGold p-8 group flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-bold text-brandDark mb-4 italic">Agricultural Services</h3>
-          <p class="text-slate-600 mb-8 leading-relaxed">
-            Specialized field support including <strong>custom ag operations, soil sampling, on-farm food production,</strong> and optimized nutrition production systems for consumers and livestock.
-          </p>
-        </div>
-        <a href="/agriculture" class="inline-block text-brandGold font-bold group-hover:underline transition-all">View All Services &rarr;</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="about" class="bg-brandDark text-white py-24 px-6">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16">
-      <div class="md:w-1/2 text-center md:text-left">
-        <h2 class="text-brandGold text-sm font-black uppercase tracking-widest mb-4">History</h2>
-        <h3 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">Rooted in Field Experience</h3>
-        <p class="text-slate-300 text-lg leading-relaxed mb-6 italic border-l-4 border-brandGreen pl-6 text-left">
-          Founded to solve the specific bottlenecks between harvesting and processing.
-        </p>
-        <p class="text-slate-300 text-lg leading-relaxed font-light text-left">
-          Bright Food Systems is an up and coming leader in smart ag tech, focusing on the future of food production in the United States.
-        </p>
-      </div>
-      <div class="md:w-1/2">
-        <div class="relative group">
-          <div class="absolute -top-3 -right-3 w-full h-full border-2 border-brandGold rounded-xl transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></div>
-          <img 
-            src="Wheat.jpg" 
-            alt="Wheat Field" 
-            class="relative z-10 rounded-xl shadow-2xl object-cover h-80 w-full transition-transform duration-300 group-hover:scale-[1.02]"
-          >
-        </div>
+      <p class="text-slate-600 text-sm max-w-xl italic text-center lg:text-left">
+        "The FDA 24-hour digital record mandate is coming. BFS provides the hardware and sortable spreadsheets to keep your facility operational."
+      </p>
+      <div class="flex gap-4">
+        <span class="text-xs font-bold text-slate-400 grayscale opacity-70">SNACK</span>
+        <span class="text-xs font-bold text-slate-400 grayscale opacity-70">DAIRY</span>
+        <span class="text-xs font-bold text-slate-400 grayscale opacity-70">MEAT</span>
+        <span class="text-xs font-bold text-slate-400 grayscale opacity-70">PRODUCE</span>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="py-24 px-6 text-center bg-slate-100">
+  <section id="vision" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-20">
+      <h2 class="text-3xl md:text-5xl font-black text-brandDark mb-4">THE BFS BLUEPRINT</h2>
+      <p class="text-slate-500">How we’re architecting the decentralized food chain.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-12 relative">
+      <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 -z-10"></div>
+
+      <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm relative">
+        <div class="w-12 h-12 bg-brandGreen text-white rounded-full flex items-center justify-center font-black mb-6">1</div>
+        <h3 class="text-xl font-bold mb-4">Phase 1: Sensing</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Retrofitting legacy PA plants and farms with IoT sensors. We turn "Dark Data" into actionable compliance logs.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm relative scale-105 ring-4 ring-brandGold/20">
+        <div class="w-12 h-12 bg-brandGold text-brandDark rounded-full flex items-center justify-center font-black mb-6">2</div>
+        <h3 class="text-xl font-bold mb-4">Phase 2: Management</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Leveraging precision ag-services to control the source. Autonomous crop and nutrient management in real-time.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm relative">
+        <div class="w-12 h-12 bg-brandDark text-white rounded-full flex items-center justify-center font-black mb-6">3</div>
+        <h3 class="text-xl font-bold mb-4">Phase 3: Production</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Lights-out on-farm kitchens. Raw ingredients to consumer products with zero-gap logistics.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brandDark py-24 px-6 text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-brandGold text-sm font-black uppercase tracking-[0.3em] mb-4">Operational Excellence</h2>
+        <h3 class="text-4xl md:text-5xl font-black mb-8">Engineering a <br> Resilient Supply Chain</h3>
+        
+        <div class="space-y-6">
+          <div class="flex gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition">
+            <div class="text-3xl">📡</div>
+            <div>
+              <h4 class="font-bold text-lg mb-1">BFS Retro-Link</h4>
+              <p class="text-slate-400 text-sm italic">Universal sensor suite for legacy industrial food equipment.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition">
+            <div class="text-3xl">🚜</div>
+            <div>
+              <h4 class="font-bold text-lg mb-1">BFS Ag-Hub</h4>
+              <p class="text-slate-400 text-sm italic">Solar-powered field and barn monitoring for precision farmers.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition">
+            <div class="text-3xl">🖥️</div>
+            <div>
+              <h4 class="font-bold text-lg mb-1">BFS Data Portal</h4>
+              <p class="text-slate-400 text-sm italic">Real-time CTE/KDE tracking & FDA sortable spreadsheet export.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute -inset-4 bg-brandGreen/20 blur-3xl rounded-full"></div>
+        <div class="relative bg-slate-800 rounded-3xl p-4 border border-white/10 shadow-2xl">
+          <div class="bg-slate-900 rounded-xl aspect-video flex items-center justify-center text-slate-500 font-mono text-sm">
+            [Interactive Data Visualization Preview]
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 px-6 bg-slate-50 border-t border-slate-200 text-center">
     <div class="max-w-2xl mx-auto">
-      <h2 class="text-4xl font-black text-brandDark mb-6 uppercase">Contact Us</h2>
-      <p class="text-slate-600 mb-10 text-lg px-4">Let’s discuss your automation and production requirements.</p>
-      <div class="grid md:grid-cols-2 gap-4 text-left px-4">
-        <div class="bg-white p-6 rounded-xl border border-slate-200">
-          <p class="text-[10px] font-black text-brandGreen uppercase mb-2">Technical Sales</p>
-          <p class="text-brandDark font-bold break-all">sales@bright-fs.com</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl border border-slate-200">
-          <p class="text-[10px] font-black text-brandGreen uppercase mb-2">Service Inquiry</p>
-          <p class="text-brandDark font-bold break-all">services@bright-fs.com</p>
-        </div>
+      <h2 class="text-4xl font-black text-brandDark mb-6 uppercase">Ready to Feed the Future?</h2>
+      <p class="text-slate-600 mb-10 text-lg">Whether you are a legacy processor in York or a dairy farmer in Lancaster, let’s build your digital nervous system.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="mailto:sales@bright-fs.com" class="bg-brandGreen text-white px-10 py-5 rounded-full font-black text-lg hover:shadow-2xl transition">Contact Engineering</a>
+        <a href="mailto:services@bright-fs.com" class="bg-white border border-slate-300 px-10 py-5 rounded-full font-black text-lg hover:bg-slate-100 transition">Ag-Service Inquiry</a>
       </div>
     </div>
   </section>
@@ -179,20 +173,9 @@
   <footer class="bg-white border-t border-slate-200 py-12 px-6">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
       <img src="Bright_FS_Shrink.png" alt="Bright Food Systems" class="h-8">
-      <p class="text-slate-400 text-[10px] uppercase tracking-[0.4em] text-center md:text-right">&copy; 2024 Bright Food Systems</p>
+      <p class="text-slate-400 text-[10px] uppercase tracking-[0.4em] text-center">&copy; 2025 Bright Food Systems | PA Systems Engineering</p>
     </div>
   </footer>
-
-  <script>
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('open');
-    });
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => menu.classList.remove('open'));
-    });
-  </script>
 
 </body>
 </html>

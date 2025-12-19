@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Food Manufacturer Automation | Bright Food Systems</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandGreen: '#2D5A27',
+            brandGold: '#E5A524',
+            brandDark: '#1A2E35',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .sector-card:hover .sector-icon { transform: scale(1.1) rotate(5deg); }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+  <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex justify-between items-center">
+      <a href="/"><img src="Bright_FS_Shrink.png" alt="BFS" class="h-10"></a>
+      <div class="hidden lg:flex space-x-8 font-bold text-brandDark uppercase text-xs tracking-widest items-center">
+        <a href="/" class="hover:text-brandGreen">Home</a>
+        <a href="/Automation" class="hover:text-brandGreen">Farm Automation</a>
+        <a href="#compliance" class="text-brandGreen">FSMA 204 Compliance</a>
+        <a href="#contact" class="bg-brandGreen text-white px-6 py-2 rounded shadow-md hover:bg-brandDark">Contact Sales</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-brandDark text-white py-20 px-6 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
+      <div class="md:w-3/5">
+        <div class="inline-block bg-brandGold/20 border border-brandGold text-brandGold px-3 py-1 rounded text-xs font-black mb-6 uppercase tracking-widest">
+          Industry 4.0 for Pennsylvania
+        </div>
+        <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+          Modernizing the <span class="text-brandGold">Snack & Food</span> Heartland
+        </h1>
+        <p class="text-lg text-slate-300 mb-8 max-w-2xl leading-relaxed">
+          Retrofit legacy processing lines with BFS Intelligence. We bridge the gap between aging hardware and modern digital mandates for PA's premier food manufacturers.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#compliance" class="bg-brandGold text-brandDark px-8 py-4 rounded font-bold hover:scale-105 transition">FSMA 204 Readiness</a>
+          <a href="#sectors" class="bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 rounded font-bold hover:bg-white/20 transition">View Sectors</a>
+        </div>
+      </div>
+      <div class="md:w-2/5 hidden md:block">
+        <div class="bg-white/5 border border-white/10 p-4 rounded-2xl rotate-3 shadow-2xl">
+          <div class="bg-brandDark rounded-xl p-6 border border-white/20">
+            <p class="text-brandGold font-mono text-xs mb-2">PROD_LINE_04 :: STATUS: ACTIVE</p>
+            <div class="h-40 flex items-end gap-2">
+              <div class="bg-brandGreen w-full h-24 rounded-t"></div>
+              <div class="bg-brandGreen w-full h-32 rounded-t"></div>
+              <div class="bg-brandGold w-full h-16 rounded-t animate-pulse"></div>
+              <div class="bg-brandGreen w-full h-28 rounded-t"></div>
+            </div>
+            <p class="mt-4 text-[10px] text-slate-400">BFS RETRO-LINK REAL-TIME OEE MONITORING</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="compliance" class="bg-red-600 text-white py-12 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="md:w-2/3">
+        <h2 class="text-2xl md:text-3xl font-black uppercase mb-2">The FSMA 204 Deadline is Approaching</h2>
+        <p class="text-red-100 opacity-90">By July 20, 2028, all companies handling high-risk foods must provide <strong>digital sortable spreadsheets</strong> to the FDA within 24 hours. BFS automates this record-keeping now.</p>
+      </div>
+      <a href="#contact" class="bg-white text-red-600 px-10 py-4 rounded font-black hover:bg-slate-100 transition shadow-xl">GET COMPLIANT NOW</a>
+    </div>
+  </section>
+
+  <section id="sectors" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-brandDark text-3xl md:text-5xl font-black mb-4 uppercase">Targeted Sector Solutions</h2>
+      <p class="text-slate-500 max-w-2xl mx-auto">Custom engineering tailored to the unique biological and mechanical requirements of Pennsylvania's diverse food landscape.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <div class="sector-card bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:border-brandGold transition-all">
+        <div class="text-4xl mb-6 sector-icon transition-transform">🥨</div>
+        <h3 class="text-xl font-bold text-brandDark mb-4">Snack Foods</h3>
+        <p class="text-sm text-slate-600 mb-6">Automated OEE for extruders and baggers. Minimize "giveaway" and stabilize fryer moisture levels.</p>
+        <ul class="text-xs space-y-2 text-slate-500 font-semibold">
+          <li>• Real-time Batch Tracking</li>
+          <li>• Nut-Butter Compliance</li>
+        </ul>
+      </div>
+
+      <div class="sector-card bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:border-brandGold transition-all">
+        <div class="text-4xl mb-6 sector-icon transition-transform">🥩</div>
+        <h3 class="text-xl font-bold text-brandDark mb-4">Meat & Protein</h3>
+        <p class="text-sm text-slate-600 mb-6">IP69K washdown-rated sensors for cold storage and automated lot splitting from carcass to package.</p>
+        <ul class="text-xs space-y-2 text-slate-500 font-semibold">
+          <li>• Chill-Chain Verification</li>
+          <li>• Deli Salad Traceability</li>
+        </ul>
+      </div>
+
+      <div class="sector-card bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:border-brandGold transition-all">
+        <div class="text-4xl mb-6 sector-icon transition-transform">🍎</div>
+        <h3 class="text-xl font-bold text-brandDark mb-4">Fruit & Produce</h3>
+        <p class="text-sm text-slate-600 mb-6">Vision-based sorting for fresh-cut produce. Monitor shelf-life via integrated thermal tracking.</p>
+        <ul class="text-xs space-y-2 text-slate-500 font-semibold">
+          <li>• Harvest-to-Pack CTEs</li>
+          <li>• GPS Geolocation Logs</li>
+        </ul>
+      </div>
+
+      <div class="sector-card bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:border-brandGold transition-all">
+        <div class="text-4xl mb-6 sector-icon transition-transform">🥛</div>
+        <h3 class="text-xl font-bold text-brandDark mb-4">Dairy & Cheese</h3>
+        <p class="text-sm text-slate-600 mb-6">Retro-Link temp and flow monitoring for pasteurizers. Verification of automated CIP sanitation cycles.</p>
+        <ul class="text-xs space-y-2 text-slate-500 font-semibold">
+          <li>• Soft-Cheese KDE Capture</li>
+          <li>• Automated Tank Logging</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="bg-white py-24 px-6 border-y border-slate-200">
+    <div class="max-w-5xl mx-auto overflow-hidden rounded-3xl shadow-2xl border border-slate-200">
+      <table class="w-full text-left border-collapse">
+        <thead class="bg-brandDark text-white">
+          <tr>
+            <th class="p-6 font-black uppercase text-sm tracking-widest">Feature</th>
+            <th class="p-6 font-black uppercase text-sm tracking-widest bg-brandGreen">BFS Automated Solution</th>
+            <th class="p-6 font-black uppercase text-sm tracking-widest">Legacy Manual Process</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b">
+            <td class="p-6 font-bold">Data Capture</td>
+            <td class="p-6 bg-green-50">Real-time IOT Sensors</td>
+            <td class="p-6">Paper Logs / Clipboards</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-6 font-bold">FDA Audit Speed</td>
+            <td class="p-6 bg-green-50 text-brandGreen font-black">< 60 Seconds</td>
+            <td class="p-6 text-red-500 font-bold">24-72 Hours</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-6 font-bold">Maintenance</td>
+            <td class="p-6 bg-green-50">Predictive (AI Alerts)</td>
+            <td class="p-6">Reactive (When it breaks)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 px-6 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl font-black text-brandDark mb-4 uppercase">Upgrade Your Facility</h2>
+      <p class="text-slate-600 mb-10 text-lg">Schedule a BFS systems audit to identify your data gaps before the 2028 compliance deadline.</p>
+      <a href="mailto:sales@bright-fs.com" class="inline-block bg-brandGreen text-white px-12 py-5 rounded-full font-black text-lg hover:bg-brandDark transition-all shadow-xl">
+        Request Facility Audit
+      </a>
+    </div>
+  </section>
+
+  <footer class="bg-brandDark text-white py-12 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <img src="Bright_FS_Shrink.png" alt="BFS" class="h-8 brightness-0 invert">
+      <p class="text-slate-400 text-[10px] uppercase tracking-[0.4em]">&copy; 2025 Bright Food Systems | Serving the Mid-Atlantic</p>
+    </div>
+  </footer>
+
+</body>
+</html>
