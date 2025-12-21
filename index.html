@@ -46,7 +46,7 @@
       overflow: hidden;
     }
     #mobile-menu.open {
-      max-height: 800px;
+      max-height: 1200px;
       border-bottom-width: 1px;
     }
 
@@ -72,26 +72,47 @@
         <img src="Bright_FS_Shrink.png" alt="Bright Food Systems" class="h-10">
       </a>
 
-      <div class="hidden lg:flex space-x-10 font-bold text-brandDark uppercase text-[11px] tracking-[0.2em] items-center">
+      <div class="hidden lg:flex space-x-8 font-bold text-brandDark uppercase text-[10px] tracking-[0.15em] items-center">
         <a href="about.html" class="hover:text-brandGreen transition">About Us</a>
         
         <div class="relative group h-20 flex items-center">
           <button class="hover:text-brandGreen transition flex items-center gap-1 uppercase">
-            Manufacturer Solutions
+            Manufacturer
             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
           </button>
           <div class="dropdown-menu absolute top-20 left-0 w-64 bg-white border border-slate-200 shadow-xl rounded-b-xl py-4 opacity-0 invisible">
-            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition text-[10px]">Dairy</a>
-            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition text-[10px]">Snack Food</a>
-            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition text-[10px]">Greenhouse / Vertical Farming</a>
-            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition text-[10px]">Vegetables</a>
-            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition text-[10px]">Chemical Handling</a>
-            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition text-[10px]">Seed Production</a>
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Dairy</a>
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Snack Food</a>
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Greenhouse / Vertical Farming</a>
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Vegetables</a>
           </div>
         </div>
 
-        <a href="agriculture/index.html" class="hover:text-brandGreen transition">Farmer Solutions</a>
-        <a href="#contact" class="bg-brandDark text-white px-6 py-2.5 rounded-full hover:bg-brandGreen transition shadow-md">Schedule System Audit</a>
+        <div class="relative group h-20 flex items-center">
+          <button class="hover:text-brandGreen transition flex items-center gap-1 uppercase">
+            Farmer Solutions
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="dropdown-menu absolute top-20 left-0 w-64 bg-white border border-slate-200 shadow-xl rounded-b-xl py-4 opacity-0 invisible">
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Cattle</a>
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Poultry</a>
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Row Crop</a>
+          </div>
+        </div>
+
+        <div class="relative group h-20 flex items-center">
+          <button class="hover:text-brandGreen transition flex items-center gap-1 uppercase">
+            Agribusiness
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="dropdown-menu absolute top-20 left-0 w-64 bg-white border border-slate-200 shadow-xl rounded-b-xl py-4 opacity-0 invisible">
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Milling</a>
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Seed Production</a>
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Chemical Handling</a>
+          </div>
+        </div>
+
+        <a href="#contact" class="bg-brandDark text-white px-5 py-2.5 rounded-full hover:bg-brandGreen transition shadow-md">Schedule Audit</a>
       </div>
 
       <button id="menu-btn" class="lg:hidden p-2 text-brandDark focus:outline-none">
@@ -104,8 +125,9 @@
     </div>
 
     <div id="mobile-menu" class="lg:hidden bg-white border-slate-200">
-      <div class="flex flex-col px-6 py-8 space-y-6 font-bold text-brandDark uppercase text-[12px] tracking-widest">
+      <div class="flex flex-col px-6 py-8 space-y-8 font-bold text-brandDark uppercase text-[12px] tracking-widest">
         <a href="about.html" class="mobile-link hover:text-brandGreen">About Us</a>
+        
         <div class="space-y-4">
             <p class="text-[10px] text-slate-400">Manufacturer Solutions</p>
             <div class="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-100">
@@ -113,11 +135,27 @@
                 <a href="#" class="text-[11px] hover:text-brandGreen">Snack Food</a>
                 <a href="#" class="text-[11px] hover:text-brandGreen">Greenhouse / Vertical Farming</a>
                 <a href="#" class="text-[11px] hover:text-brandGreen">Vegetables</a>
-                <a href="#" class="text-[11px] hover:text-brandGreen">Chemical Handling</a>
-                <a href="#" class="text-[11px] hover:text-brandGreen">Seed Production</a>
             </div>
         </div>
-        <a href="agriculture/index.html" class="mobile-link hover:text-brandGreen transition">Farmer Solutions</a>
+
+        <div class="space-y-4">
+            <p class="text-[10px] text-slate-400">Farmer Solutions</p>
+            <div class="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-100">
+                <a href="#" class="text-[11px] hover:text-brandGreen">Cattle</a>
+                <a href="#" class="text-[11px] hover:text-brandGreen">Poultry</a>
+                <a href="#" class="text-[11px] hover:text-brandGreen">Row Crop</a>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <p class="text-[10px] text-slate-400">Agribusiness Solutions</p>
+            <div class="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-100">
+                <a href="#" class="text-[11px] hover:text-brandGreen">Milling</a>
+                <a href="#" class="text-[11px] hover:text-brandGreen">Seed Production</a>
+                <a href="#" class="text-[11px] hover:text-brandGreen">Chemical Handling</a>
+            </div>
+        </div>
+
         <a href="#contact" class="mobile-link bg-brandDark text-white px-6 py-4 rounded-xl text-center shadow-md hover:bg-brandGreen transition">Schedule System Audit</a>
       </div>
     </div>
@@ -232,9 +270,9 @@
         </div>
         
         <div class="flex flex-col gap-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">
-            <p class="text-brandDark border-b border-slate-100 pb-2">Solutions</p>
+            <p class="text-brandDark border-b border-slate-100 pb-2">Navigation</p>
             <a href="about.html" class="hover:text-brandGreen transition">About Us</a>
-            <a href="agriculture/index.html" class="hover:text-brandGreen transition">Farmer Solutions</a>
+            <a href="#solutions" class="hover:text-brandGreen transition">Capabilities</a>
         </div>
 
         <div class="flex flex-col gap-4 text-[10px] font-black text-slate-500 uppercase tracking-widest md:col-span-2">
