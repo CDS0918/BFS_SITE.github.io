@@ -111,8 +111,9 @@
         </div>
 
         <div class="flex items-center gap-3">
-          <a href="#contact" class="border-2 border-brandDark text-brandDark px-5 py-2.5 rounded-full hover:bg-brandDark hover:text-white transition font-black">Service / Help</a>
-          <a href="#contact" class="bg-brandDark text-white px-5 py-2.5 rounded-full hover:bg-brandGreen transition shadow-md">Schedule Audit</a>
+          <a href="#" onclick="window.location.href='mailto:service@bright-fs.com?subject=Help Request Website ' + new Date().toLocaleDateString(); return false;" class="border-2 border-brandDark text-brandDark px-5 py-2.5 rounded-full hover:bg-brandDark hover:text-white transition font-black">Service / Help</a>
+          
+          <a href="mailto:aps@bright-fs.com" class="bg-brandDark text-white px-5 py-2.5 rounded-full hover:bg-brandGreen transition shadow-md">Schedule Audit</a>
         </div>
       </div>
 
@@ -146,9 +147,14 @@
                 <a href="#">Cattle</a><a href="#">Poultry</a><a href="#">Row Crop</a>
             </div>
         </div>
-        <div class="flex flex-col gap-3">
-          <a href="#contact" class="mobile-link border-2 border-brandDark text-brandDark px-6 py-4 rounded-xl text-center">Service / Help</a>
-          <a href="#contact" class="mobile-link bg-brandDark text-white px-6 py-4 rounded-xl text-center">Schedule System Audit</a>
+        
+        <div class="grid grid-cols-2 gap-3">
+          <a href="#" onclick="window.location.href='mailto:service@bright-fs.com?subject=Help Request Website ' + new Date().toLocaleDateString(); return false;" class="mobile-link border-2 border-brandDark text-brandDark px-2 py-4 rounded-xl text-center text-[11px] flex items-center justify-center">
+            Service / Help
+          </a>
+          <a href="mailto:aps@bright-fs.com" class="mobile-link bg-brandDark text-white px-2 py-4 rounded-xl text-center text-[11px] flex items-center justify-center">
+            Schedule System Audit
+          </a>
         </div>
       </div>
     </div>
@@ -218,21 +224,15 @@
   </section>
 
   <section id="contact" class="py-24 px-6 bg-brandDark text-white text-center rounded-[3rem] mx-4 mb-12 relative overflow-hidden">
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h2 class="text-4xl md:text-6xl font-black mb-8">Begin Your <br> System Audit</h2>
-      <div class="grid md:grid-cols-2 gap-4 text-left mb-12">
-        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
-          <p class="text-[10px] font-black text-brandGold uppercase mb-2">Technical Sales</p>
-          <p class="text-white font-bold text-lg">sales@bright-fs.com</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
-          <p class="text-[10px] font-black text-brandGold uppercase mb-2">Help / Service</p>
-          <p class="text-white font-bold text-lg">BFS_Helpdesk@bright-fs.com</p>
-        </div>
+    <div class="max-w-4xl mx-auto relative z-10">
+      <h2 class="text-3xl md:text-5xl font-black mb-8 uppercase leading-tight">
+        Speak to a Applications Engineer<br>today for a systems audit
+      </h2>
+      <div class="inline-block border-2 border-white/20 rounded-2xl p-8 bg-white/5 hover:bg-white/10 transition duration-300">
+          <a href="mailto:aps@bright-fs.com" class="text-brandGold text-2xl md:text-4xl font-bold hover:text-white transition underline decoration-2 underline-offset-8">
+            aps@bright-fs.com
+          </a>
       </div>
-      <a href="mailto:sales@bright-fs.com" class="inline-block bg-white text-brandDark px-12 py-5 rounded-full font-black text-xl hover:bg-brandGold hover:text-white transition-all shadow-2xl uppercase">
-        Book Consultation
-      </a>
     </div>
   </section>
 
