@@ -39,7 +39,6 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Mobile Menu Animation */
     #mobile-menu {
       transition: all 0.3s ease-in-out;
       max-height: 0;
@@ -50,7 +49,6 @@
       border-bottom-width: 1px;
     }
 
-    /* Dropdown visibility on hover for desktop */
     @media (min-width: 1024px) {
       .group:hover .dropdown-menu {
         opacity: 1;
@@ -127,35 +125,24 @@
     <div id="mobile-menu" class="lg:hidden bg-white border-slate-200">
       <div class="flex flex-col px-6 py-8 space-y-6 font-bold text-brandDark uppercase text-[14px] tracking-widest">
         <a href="about.html">About Us</a>
-        
         <div class="space-y-4">
             <p class="text-[10px] text-slate-400">Manufacturer</p>
-            <div class="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-200">
-                <a href="#" class="text-[12px]">Dairy</a>
-                <a href="#" class="text-[12px]">Snack Food</a>
-                <a href="#" class="text-[12px]">Greenhouse</a>
-                <a href="#" class="text-[12px]">Vegetables</a>
+            <div class="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-200 text-[12px]">
+                <a href="#">Dairy</a><a href="#">Snack Food</a><a href="#">Greenhouse</a><a href="#">Vegetables</a>
             </div>
         </div>
-
         <div class="space-y-4">
             <p class="text-[10px] text-slate-400">Agribusiness</p>
-            <div class="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-200">
-                <a href="#" class="text-[12px]">Milling</a>
-                <a href="#" class="text-[12px]">Seed Production</a>
-                <a href="#" class="text-[12px]">Chemical Handling</a>
+            <div class="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-200 text-[12px]">
+                <a href="#">Milling</a><a href="#">Seed Production</a><a href="#">Chemical Handling</a>
             </div>
         </div>
-
         <div class="space-y-4">
             <p class="text-[10px] text-slate-400">Farmer</p>
-            <div class="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-200">
-                <a href="#" class="text-[12px]">Cattle</a>
-                <a href="#" class="text-[12px]">Poultry</a>
-                <a href="#" class="text-[12px]">Row Crop</a>
+            <div class="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-200 text-[12px]">
+                <a href="#">Cattle</a><a href="#">Poultry</a><a href="#">Row Crop</a>
             </div>
         </div>
-
         <a href="#contact" class="bg-brandDark text-white px-6 py-4 rounded-xl text-center">Schedule System Audit</a>
       </div>
     </div>
@@ -204,20 +191,17 @@
         <h2 class="text-brandDark text-4xl md:text-6xl font-black mb-6 uppercase">Engineering ROI</h2>
         <div class="w-24 h-2 bg-brandGold mx-auto rounded-full"></div>
       </div>
-
       <div class="grid lg:grid-cols-3 gap-8">
         <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-200 hover:shadow-2xl transition-all duration-500">
           <h3 class="text-2xl font-black text-brandDark mb-4 italic uppercase border-l-4 border-brandGreen pl-4">Operational Sensing</h3>
           <p class="text-slate-600 leading-relaxed mb-6">Capture "Dark Data" from legacy machines to solve the compliance gap while optimizing plant efficiency.</p>
           <div class="text-[10px] font-black text-brandGreen uppercase tracking-widest">Target: Traceability & OEE</div>
         </div>
-
         <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-200 hover:shadow-2xl transition-all duration-500 lg:-translate-y-4">
           <h3 class="text-2xl font-black text-brandDark mb-4 italic uppercase border-l-4 border-brandGold pl-4">Integrated Farmer Systems</h3>
           <p class="text-slate-600 leading-relaxed mb-6">Connecting field management to production. Build an automated farm network feeding directly to your portal.</p>
           <div class="text-[10px] font-black text-brandGold uppercase tracking-widest">Target: Supply Chain Visibility</div>
         </div>
-
         <div class="bg-brandDark p-10 rounded-[2rem] shadow-2xl text-white">
           <h3 class="text-2xl font-black text-brandGold mb-4 italic uppercase border-l-4 border-white pl-4">Autonomous Production</h3>
           <p class="text-slate-300 leading-relaxed mb-6">Transition from raw ingredients to consumer products with autonomous chains designed to protect margins.</p>
@@ -266,12 +250,18 @@
                 Farm Direct Services
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </a>
+            <a href="https://fdf.bright-fs.com" target="_blank" class="hover:text-brandGreen flex items-center gap-2">
+                Farview Dairy Farms
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
         </div>
 
         <div class="flex flex-col gap-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">
             <p class="text-brandDark border-b border-slate-100 pb-2">Portals</p>
-            <a href="https://erp.bright-fs.com" class="hover:text-brandGold">Management Portal</a>
-            <a href="https://fdf.bright-fs.com" class="hover:text-brandGold">Farview Dairy Farms</a>
+            <a href="https://erp.bright-fs.com" target="_blank" class="hover:text-brandGold flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-brandGold rounded-full"></span>
+                Management Portal
+            </a>
         </div>
       </div>
     </div>
