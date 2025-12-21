@@ -110,9 +110,9 @@
           </div>
         </div>
 
-        <div class="flex items-center gap-3">
-          <a href="#contact" class="border-2 border-brandDark text-brandDark px-5 py-2.5 rounded-full hover:bg-brandDark hover:text-white transition font-black">Service / Help</a>
-          <a href="#contact" class="bg-brandDark text-white px-5 py-2.5 rounded-full hover:bg-brandGreen transition shadow-md">Schedule Audit</a>
+        <div class="flex items-center gap-3 ml-4">
+          <a href="javascript:void(0)" onclick="sendEmail('audit')" class="bg-brandDark text-white px-5 py-2.5 rounded-full hover:bg-brandGreen transition shadow-md whitespace-nowrap">Schedule Audit</a>
+          <a href="javascript:void(0)" onclick="sendEmail('service')" class="border-2 border-brandDark text-brandDark px-5 py-2 rounded-full hover:bg-brandDark hover:text-white transition font-black whitespace-nowrap">Service / Help</a>
         </div>
       </div>
 
@@ -146,9 +146,10 @@
                 <a href="#">Cattle</a><a href="#">Poultry</a><a href="#">Row Crop</a>
             </div>
         </div>
-        <div class="flex flex-col gap-3">
-          <a href="#contact" class="mobile-link border-2 border-brandDark text-brandDark px-6 py-4 rounded-xl text-center">Service / Help</a>
-          <a href="#contact" class="mobile-link bg-brandDark text-white px-6 py-4 rounded-xl text-center">Schedule System Audit</a>
+        
+        <div class="grid grid-cols-2 gap-3 pt-4">
+          <a href="javascript:void(0)" onclick="sendEmail('audit')" class="bg-brandDark text-white px-4 py-4 rounded-xl text-center text-[11px] flex items-center justify-center">Schedule Audit</a>
+          <a href="javascript:void(0)" onclick="sendEmail('service')" class="border-2 border-brandDark text-brandDark px-4 py-4 rounded-xl text-center text-[11px] flex items-center justify-center">Service / Help</a>
         </div>
       </div>
     </div>
@@ -164,137 +165,47 @@
           Retrofit Your Infrastructure. <span class="text-brandGold">Secure Your Future.</span>
         </h1>
         <p class="text-lg md:text-2xl text-slate-300 mb-12 leading-relaxed font-light">
-          We bridge the gap between production and data. BFS engineers <strong>retrofit information systems</strong> that automate legacy food chains while meeting 2028 FDA mandates.
+          We bridge the gap between production and data. BFS engineers retrofit information systems that automate legacy food chains.
         </p>
         <div class="flex flex-col sm:flex-row gap-5">
-          <a href="#contact" class="bg-brandGold text-brandDark px-10 py-5 rounded-xl font-black text-center hover:scale-105 transition shadow-2xl uppercase tracking-wider text-sm">
+          <a href="javascript:void(0)" onclick="sendEmail('audit')" class="bg-brandGold text-brandDark px-10 py-5 rounded-xl font-black text-center hover:scale-105 transition shadow-2xl uppercase tracking-wider text-sm">
             Request Consultation
-          </a>
-          <a href="#solutions" class="glass px-10 py-5 rounded-xl font-bold text-center hover:bg-white/10 transition uppercase tracking-wider text-sm">
-            Our Capabilities
           </a>
         </div>
       </div>
     </div>
   </header>
 
-  <section class="bg-brandDark py-10 border-y border-white/10">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-8">
-      <div class="text-center lg:text-left">
-        <h2 class="text-red-500 font-black text-xs uppercase tracking-[0.3em] mb-2">Mandatory FSMA 204 Compliance</h2>
-        <p class="text-white text-lg font-semibold">Is your facility ready for the 24-hour digital record mandate?</p>
-      </div>
-      <p class="text-slate-400 text-sm max-w-md text-center lg:text-left italic">
-        "BFS Retro-Link provides the electronic sortable spreadsheets required by the FDA."
-      </p>
-      <a href="#" class="text-brandGold font-bold text-sm border-b border-brandGold pb-1 hover:text-white hover:border-white transition">Get Compliant &rarr;</a>
-    </div>
-  </section>
-
-  <section id="solutions" class="py-24 px-6 bg-slate-50">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-20">
-        <h2 class="text-brandDark text-4xl md:text-6xl font-black mb-6 uppercase">Engineering ROI</h2>
-        <div class="w-24 h-2 bg-brandGold mx-auto rounded-full"></div>
-      </div>
-      <div class="grid lg:grid-cols-3 gap-8">
-        <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-200 hover:shadow-2xl transition-all duration-500">
-          <h3 class="text-2xl font-black text-brandDark mb-4 italic uppercase border-l-4 border-brandGreen pl-4">Operational Sensing</h3>
-          <p class="text-slate-600 leading-relaxed mb-6">Capture "Dark Data" from legacy machines to solve the compliance gap while optimizing plant efficiency.</p>
-          <div class="text-[10px] font-black text-brandGreen uppercase tracking-widest">Target: Traceability & OEE</div>
-        </div>
-        <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-200 hover:shadow-2xl transition-all duration-500 lg:-translate-y-4">
-          <h3 class="text-2xl font-black text-brandDark mb-4 italic uppercase border-l-4 border-brandGold pl-4">Integrated Farmer Systems</h3>
-          <p class="text-slate-600 leading-relaxed mb-6">Connecting field management to production. Build an automated farm network feeding directly to your portal.</p>
-          <div class="text-[10px] font-black text-brandGold uppercase tracking-widest">Target: Supply Chain Visibility</div>
-        </div>
-        <div class="bg-brandDark p-10 rounded-[2rem] shadow-2xl text-white">
-          <h3 class="text-2xl font-black text-brandGold mb-4 italic uppercase border-l-4 border-white pl-4">Autonomous Production</h3>
-          <p class="text-slate-300 leading-relaxed mb-6">Transition from raw ingredients to consumer products with autonomous chains designed to protect margins.</p>
-          <div class="text-[10px] font-black text-white uppercase tracking-widest">Target: Lights-Out Efficiency</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="py-24 px-6 bg-brandDark text-white text-center rounded-[3rem] mx-4 mb-12 relative overflow-hidden">
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h2 class="text-4xl md:text-6xl font-black mb-8">Begin Your <br> System Audit</h2>
-      <div class="grid md:grid-cols-2 gap-4 text-left mb-12">
-        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
-          <p class="text-[10px] font-black text-brandGold uppercase mb-2">Technical Sales</p>
-          <p class="text-white font-bold text-lg">sales@bright-fs.com</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
-          <p class="text-[10px] font-black text-brandGold uppercase mb-2">Help / Service</p>
-          <p class="text-white font-bold text-lg">BFS_Helpdesk@bright-fs.com</p>
-        </div>
-      </div>
-      <a href="mailto:sales@bright-fs.com" class="inline-block bg-white text-brandDark px-12 py-5 rounded-full font-black text-xl hover:bg-brandGold hover:text-white transition-all shadow-2xl uppercase">
-        Book Consultation
-      </a>
-    </div>
-  </section>
-
-  <footer class="py-16 px-6 border-t border-slate-200 bg-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-4 gap-12 items-start mb-12">
-        <div class="col-span-1">
-          <img src="Bright_FS_Shrink.png" alt="BFS" class="h-8 mb-6">
-          <p class="text-slate-400 text-[10px] uppercase tracking-[0.4em]">&copy; 2025 Bright Food Systems</p>
-        </div>
-        
-        <div class="flex flex-col gap-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">
-            <p class="text-brandDark border-b border-slate-100 pb-2">Company</p>
-            <a href="about.html" class="hover:text-brandGreen">About Us</a>
-            <a href="#solutions" class="hover:text-brandGreen">Capabilities</a>
-        </div>
-
-        <div class="flex flex-col gap-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">
-            <p class="text-brandDark border-b border-slate-100 pb-2">Ag Services</p>
-            <a href="agriculture/index.html" class="hover:text-brandGreen flex items-center gap-2">
-                Farm Direct Services
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            </a>
-            <a href="https://fdf.bright-fs.com" target="_blank" class="hover:text-brandGreen flex items-center gap-2">
-                Farview Dairy Farms
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            </a>
-        </div>
-
-        <div class="flex flex-col gap-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">
-            <p class="text-brandDark border-b border-slate-100 pb-2">Portals</p>
-            <a href="https://erp.bright-fs.com" target="_blank" class="hover:text-brandGold flex items-center gap-2">
-                <span class="w-1.5 h-1.5 bg-brandGold rounded-full"></span>
-                Management Portal
-            </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
   <script>
+    // Logic to handle dynamic dates in email subjects
+    function sendEmail(type) {
+      const today = new Date().toLocaleDateString('en-US'); // Format: MM/DD/YYYY
+      let email = "";
+      let subject = "";
+
+      if (type === 'audit') {
+        email = "sales@bright-fs.com";
+        subject = `System Audit ${today}`;
+      } else if (type === 'service') {
+        email = "BFS_Helpdesk@bright-fs.com";
+        subject = `Service Request ${today}`;
+      }
+
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+    }
+
+    // Mobile menu logic
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
     const pTop = document.getElementById('path-top');
     const pMid = document.getElementById('path-mid');
     const pBot = document.getElementById('path-bot');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    const toggleMenu = () => {
+    btn.addEventListener('click', () => {
       const isOpen = menu.classList.toggle('open');
       pTop.style.transform = isOpen ? 'rotate(45deg) translateY(8.5px)' : 'rotate(0) translateY(0)';
       pMid.style.opacity = isOpen ? '0' : '1';
       pBot.style.transform = isOpen ? 'rotate(-45deg) translateY(-8.5px)' : 'rotate(0) translateY(0)';
-    };
-
-    btn.addEventListener('click', toggleMenu);
-    
-    // Close menu when clicking mobile service links
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (menu.classList.contains('open')) toggleMenu();
-      });
     });
   </script>
 </body>
