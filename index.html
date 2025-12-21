@@ -46,7 +46,7 @@
       overflow: hidden;
     }
     #mobile-menu.open {
-      max-height: 1200px;
+      max-height: 1500px;
       border-bottom-width: 1px;
     }
 
@@ -72,50 +72,50 @@
         <img src="Bright_FS_Shrink.png" alt="Bright Food Systems" class="h-10">
       </a>
 
-      <div class="hidden lg:flex space-x-8 font-bold text-brandDark uppercase text-[10px] tracking-[0.15em] items-center">
-        <a href="about.html" class="hover:text-brandGreen transition">About Us</a>
+      <div class="hidden lg:flex space-x-6 font-bold text-brandDark uppercase text-[10px] tracking-[0.15em] items-center">
+        <a href="about.html" class="hover:text-brandGreen transition">About</a>
         
         <div class="relative group h-20 flex items-center">
-          <button class="hover:text-brandGreen transition flex items-center gap-1 uppercase">
+          <button class="hover:text-brandGreen transition flex items-center gap-1">
             Manufacturer
             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
           </button>
-          <div class="dropdown-menu absolute top-20 left-0 w-64 bg-white border border-slate-200 shadow-xl rounded-b-xl py-4 opacity-0 invisible">
+          <div class="dropdown-menu absolute top-20 left-0 w-56 bg-white border border-slate-200 shadow-xl rounded-b-xl py-4 opacity-0 invisible">
             <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Dairy</a>
             <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Snack Food</a>
-            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Greenhouse / Vertical Farming</a>
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Greenhouse</a>
             <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Vegetables</a>
           </div>
         </div>
 
         <div class="relative group h-20 flex items-center">
-          <button class="hover:text-brandGreen transition flex items-center gap-1 uppercase">
-            Farmer Solutions
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <div class="dropdown-menu absolute top-20 left-0 w-64 bg-white border border-slate-200 shadow-xl rounded-b-xl py-4 opacity-0 invisible">
-            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Cattle</a>
-            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Poultry</a>
-            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Row Crop</a>
-          </div>
-        </div>
-
-        <div class="relative group h-20 flex items-center">
-          <button class="hover:text-brandGreen transition flex items-center gap-1 uppercase">
+          <button class="hover:text-brandGreen transition flex items-center gap-1">
             Agribusiness
             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
           </button>
-          <div class="dropdown-menu absolute top-20 left-0 w-64 bg-white border border-slate-200 shadow-xl rounded-b-xl py-4 opacity-0 invisible">
+          <div class="dropdown-menu absolute top-20 left-0 w-56 bg-white border border-slate-200 shadow-xl rounded-b-xl py-4 opacity-0 invisible">
             <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Milling</a>
             <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Seed Production</a>
             <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Chemical Handling</a>
           </div>
         </div>
 
+        <div class="relative group h-20 flex items-center">
+          <button class="hover:text-brandGreen transition flex items-center gap-1">
+            Farmer
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="dropdown-menu absolute top-20 left-0 w-56 bg-white border border-slate-200 shadow-xl rounded-b-xl py-4 opacity-0 invisible">
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Cattle</a>
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Poultry</a>
+            <a href="#" class="block px-6 py-3 hover:bg-slate-50 hover:text-brandGreen transition">Row Crop</a>
+          </div>
+        </div>
+
         <a href="#contact" class="bg-brandDark text-white px-5 py-2.5 rounded-full hover:bg-brandGreen transition shadow-md">Schedule Audit</a>
       </div>
 
-      <button id="menu-btn" class="lg:hidden p-2 text-brandDark focus:outline-none">
+      <button id="menu-btn" class="lg:hidden p-2 text-brandDark">
         <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path id="path-top" d="M4 6h16" stroke-width="2" stroke-linecap="round" class="transition-all duration-300 origin-center"></path>
           <path id="path-mid" d="M4 12h16" stroke-width="2" stroke-linecap="round" class="transition-all duration-300"></path>
@@ -125,57 +125,50 @@
     </div>
 
     <div id="mobile-menu" class="lg:hidden bg-white border-slate-200">
-      <div class="flex flex-col px-6 py-8 space-y-8 font-bold text-brandDark uppercase text-[12px] tracking-widest">
-        <a href="about.html" class="mobile-link hover:text-brandGreen">About Us</a>
+      <div class="flex flex-col px-6 py-8 space-y-6 font-bold text-brandDark uppercase text-[11px] tracking-widest">
+        <a href="about.html">About Us</a>
         
-        <div class="space-y-4">
-            <p class="text-[10px] text-slate-400">Manufacturer Solutions</p>
-            <div class="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-100">
-                <a href="#" class="text-[11px] hover:text-brandGreen">Dairy</a>
-                <a href="#" class="text-[11px] hover:text-brandGreen">Snack Food</a>
-                <a href="#" class="text-[11px] hover:text-brandGreen">Greenhouse / Vertical Farming</a>
-                <a href="#" class="text-[11px] hover:text-brandGreen">Vegetables</a>
+        <div class="space-y-3">
+            <p class="text-[9px] text-slate-400">Manufacturer</p>
+            <div class="grid grid-cols-1 gap-2 pl-4 border-l border-slate-200">
+                <a href="#">Dairy</a><a href="#">Snack Food</a><a href="#">Greenhouse</a><a href="#">Vegetables</a>
             </div>
         </div>
 
-        <div class="space-y-4">
-            <p class="text-[10px] text-slate-400">Farmer Solutions</p>
-            <div class="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-100">
-                <a href="#" class="text-[11px] hover:text-brandGreen">Cattle</a>
-                <a href="#" class="text-[11px] hover:text-brandGreen">Poultry</a>
-                <a href="#" class="text-[11px] hover:text-brandGreen">Row Crop</a>
+        <div class="space-y-3">
+            <p class="text-[9px] text-slate-400">Agribusiness</p>
+            <div class="grid grid-cols-1 gap-2 pl-4 border-l border-slate-200">
+                <a href="#">Milling</a><a href="#">Seed Production</a><a href="#">Chemical Handling</a>
             </div>
         </div>
 
-        <div class="space-y-4">
-            <p class="text-[10px] text-slate-400">Agribusiness Solutions</p>
-            <div class="grid grid-cols-1 gap-3 pl-4 border-l-2 border-slate-100">
-                <a href="#" class="text-[11px] hover:text-brandGreen">Milling</a>
-                <a href="#" class="text-[11px] hover:text-brandGreen">Seed Production</a>
-                <a href="#" class="text-[11px] hover:text-brandGreen">Chemical Handling</a>
+        <div class="space-y-3">
+            <p class="text-[9px] text-slate-400">Farmer</p>
+            <div class="grid grid-cols-1 gap-2 pl-4 border-l border-slate-200">
+                <a href="#">Cattle</a><a href="#">Poultry</a><a href="#">Row Crop</a>
             </div>
         </div>
 
-        <a href="#contact" class="mobile-link bg-brandDark text-white px-6 py-4 rounded-xl text-center shadow-md hover:bg-brandGreen transition">Schedule System Audit</a>
+        <a href="#contact" class="bg-brandDark text-white px-6 py-4 rounded-xl text-center">Schedule System Audit</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero-gradient text-white py-32 md:py-48 px-6 overflow-hidden">
-    <div class="max-w-7xl mx-auto relative">
+  <header class="hero-gradient text-white py-32 md:py-48 px-6">
+    <div class="max-w-7xl mx-auto">
       <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-brandGold/20 border border-brandGold/30 text-brandGold text-[10px] font-black uppercase tracking-widest mb-8">
+        <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-brandGold/20 border border-brandGold/30 text-brandGold text-[10px] font-black uppercase tracking-widest mb-8">
           Systems Engineering for Food & Agriculture
         </div>
         <h1 class="text-5xl md:text-7xl font-black mb-8 leading-[1.1]">
           Retrofit Your Infrastructure. <span class="text-brandGold">Secure Your Future.</span>
         </h1>
         <p class="text-lg md:text-2xl text-slate-300 mb-12 leading-relaxed font-light">
-          We bridge the gap between production and data. BFS engineers <strong>retrofit information systems</strong> that automate legacy food chains, driving down costs while meeting strict 2028 FDA mandates.
+          We bridge the gap between production and data. BFS engineers <strong>retrofit information systems</strong> that automate legacy food chains while meeting 2028 FDA mandates.
         </p>
         <div class="flex flex-col sm:flex-row gap-5">
           <a href="#contact" class="bg-brandGold text-brandDark px-10 py-5 rounded-xl font-black text-center hover:scale-105 transition shadow-2xl uppercase tracking-wider text-sm">
-            Request Retrofit Consultation
+            Request Consultation
           </a>
           <a href="#solutions" class="glass px-10 py-5 rounded-xl font-bold text-center hover:bg-white/10 transition uppercase tracking-wider text-sm">
             Our Capabilities
@@ -191,15 +184,14 @@
         <h2 class="text-red-500 font-black text-xs uppercase tracking-[0.3em] mb-2">Mandatory FSMA 204 Compliance</h2>
         <p class="text-white text-lg font-semibold">Is your facility ready for the 24-hour digital record mandate?</p>
       </div>
-      <div class="h-px w-24 bg-white/20 hidden lg:block"></div>
       <p class="text-slate-400 text-sm max-w-md text-center lg:text-left italic">
-        "BFS Retro-Link provides the electronic sortable spreadsheets required by the FDA for high-risk food traceability."
+        "BFS Retro-Link provides the electronic sortable spreadsheets required by the FDA."
       </p>
       <a href="#" class="text-brandGold font-bold text-sm border-b border-brandGold pb-1 hover:text-white hover:border-white transition">Get Compliant &rarr;</a>
     </div>
   </section>
 
-  <section id="solutions" class="py-24 md:py-32 px-6 bg-slate-50">
+  <section id="solutions" class="py-24 px-6 bg-slate-50">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-20">
         <h2 class="text-brandDark text-4xl md:text-6xl font-black mb-6 uppercase">Engineering ROI</h2>
@@ -207,56 +199,42 @@
       </div>
 
       <div class="grid lg:grid-cols-3 gap-8">
-        <div class="group bg-white p-10 rounded-[2rem] shadow-sm border border-slate-200 hover:shadow-2xl transition-all duration-500">
-          <h3 class="text-2xl font-black text-brandDark mb-4 italic uppercase tracking-tight border-l-4 border-brandGreen pl-4">Operational Sensing</h3>
-          <p class="text-slate-600 leading-relaxed mb-6">
-            Retrofitting legacy industrial infrastructure with IoT sensors to capture "Dark Data." We solve the <strong>compliance gap</strong> immediately while providing deep insights into plant efficiency and machine health.
-          </p>
-          <div class="text-[10px] font-black text-brandGreen uppercase tracking-widest">Target: Traceability & OEE Optimization</div>
+        <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-200 hover:shadow-2xl transition-all duration-500">
+          <h3 class="text-2xl font-black text-brandDark mb-4 italic uppercase border-l-4 border-brandGreen pl-4">Operational Sensing</h3>
+          <p class="text-slate-600 leading-relaxed mb-6">Capture "Dark Data" from legacy machines to solve the compliance gap while optimizing plant efficiency.</p>
+          <div class="text-[10px] font-black text-brandGreen uppercase tracking-widest">Target: Traceability & OEE</div>
         </div>
 
-        <div class="group bg-white p-10 rounded-[2rem] shadow-sm border border-slate-200 hover:shadow-2xl transition-all duration-500 relative lg:-translate-y-4">
-          <h3 class="text-2xl font-black text-brandDark mb-4 italic uppercase tracking-tight border-l-4 border-brandGold pl-4">Integrated Farmer Systems</h3>
-          <p class="text-slate-600 leading-relaxed mb-6">
-            Connecting field management directly to production data. Our custom ag-services build a network of automated farms that feed directly into your digital portal for seamless supply chain visibility.
-          </p>
-          <div class="text-[10px] font-black text-brandGold uppercase tracking-widest">Target: End-to-End Logistics Control</div>
+        <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-200 hover:shadow-2xl transition-all duration-500 lg:-translate-y-4">
+          <h3 class="text-2xl font-black text-brandDark mb-4 italic uppercase border-l-4 border-brandGold pl-4">Integrated Farmer Systems</h3>
+          <p class="text-slate-600 leading-relaxed mb-6">Connecting field management to production. Build an automated farm network feeding directly to your portal.</p>
+          <div class="text-[10px] font-black text-brandGold uppercase tracking-widest">Target: Supply Chain Visibility</div>
         </div>
 
-        <div class="group bg-brandDark p-10 rounded-[2rem] shadow-2xl text-white hover:shadow-brandGold/10 transition-all duration-500">
-          <h3 class="text-2xl font-black text-brandGold mb-4 italic uppercase tracking-tight border-l-4 border-white pl-4">Autonomous Production</h3>
-          <p class="text-slate-300 leading-relaxed mb-6">
-            Implementing on-farm automated kitchens and zero-gap logistics. Transition from raw ingredients to consumer products with an autonomous chain designed to decentralize and protect your margins.
-          </p>
-          <div class="text-[10px] font-black text-white uppercase tracking-widest">Target: Lights-Out Production Efficiency</div>
+        <div class="bg-brandDark p-10 rounded-[2rem] shadow-2xl text-white">
+          <h3 class="text-2xl font-black text-brandGold mb-4 italic uppercase border-l-4 border-white pl-4">Autonomous Production</h3>
+          <p class="text-slate-300 leading-relaxed mb-6">Transition from raw ingredients to consumer products with autonomous chains designed to protect margins.</p>
+          <div class="text-[10px] font-black text-white uppercase tracking-widest">Target: Lights-Out Efficiency</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="py-24 px-6 bg-brandDark text-white text-center rounded-[3rem] mx-4 mb-12 overflow-hidden relative">
-    <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-brandGreen rounded-full blur-[120px]"></div>
-      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brandGold rounded-full blur-[120px]"></div>
-    </div>
-    
+  <section id="contact" class="py-24 px-6 bg-brandDark text-white text-center rounded-[3rem] mx-4 mb-12 relative overflow-hidden">
     <div class="max-w-3xl mx-auto relative z-10">
       <h2 class="text-4xl md:text-6xl font-black mb-8">Begin Your <br> System Audit</h2>
-      <p class="text-slate-400 text-lg mb-12 leading-relaxed">
-        Let’s analyze your current operations. Whether you are a legacy processor or a scaling producer, BFS provides the engineering expertise to retrofit your success.
-      </p>
       <div class="grid md:grid-cols-2 gap-4 text-left mb-12">
-        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
-          <p class="text-[10px] font-black text-brandGold uppercase mb-2">Technical Sales & Retrofits</p>
+        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
+          <p class="text-[10px] font-black text-brandGold uppercase mb-2">Technical Sales</p>
           <p class="text-white font-bold text-lg">sales@bright-fs.com</p>
         </div>
-        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition">
-          <p class="text-[10px] font-black text-brandGold uppercase mb-2">Ag Services & Soil Sampling</p>
+        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
+          <p class="text-[10px] font-black text-brandGold uppercase mb-2">Ag Services</p>
           <p class="text-white font-bold text-lg">services@bright-fs.com</p>
         </div>
       </div>
-      <a href="mailto:sales@bright-fs.com" class="inline-block bg-white text-brandDark px-12 py-5 rounded-full font-black text-xl hover:bg-brandGold hover:text-white transition-all shadow-2xl uppercase tracking-tighter">
-        Book Facility Consultation
+      <a href="mailto:sales@bright-fs.com" class="inline-block bg-white text-brandDark px-12 py-5 rounded-full font-black text-xl hover:bg-brandGold hover:text-white transition-all shadow-2xl uppercase">
+        Book Consultation
       </a>
     </div>
   </section>
@@ -270,21 +248,23 @@
         </div>
         
         <div class="flex flex-col gap-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">
-            <p class="text-brandDark border-b border-slate-100 pb-2">Navigation</p>
-            <a href="about.html" class="hover:text-brandGreen transition">About Us</a>
-            <a href="#solutions" class="hover:text-brandGreen transition">Capabilities</a>
+            <p class="text-brandDark border-b border-slate-100 pb-2">Company</p>
+            <a href="about.html" class="hover:text-brandGreen">About Us</a>
+            <a href="#solutions" class="hover:text-brandGreen">Capabilities</a>
         </div>
 
-        <div class="flex flex-col gap-4 text-[10px] font-black text-slate-500 uppercase tracking-widest md:col-span-2">
-            <p class="text-brandDark border-b border-slate-100 pb-2">Infrastructure Portals</p>
-            <a href="https://erp.bright-fs.com" target="_blank" class="hover:text-brandGold transition flex items-center gap-2">
-                <span class="w-1.5 h-1.5 bg-brandGold rounded-full"></span>
-                Bright Food Systems Management Portal
+        <div class="flex flex-col gap-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">
+            <p class="text-brandDark border-b border-slate-100 pb-2">Ag Services</p>
+            <a href="agriculture/index.html" class="hover:text-brandGreen flex items-center gap-2">
+                Farm Direct Services
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </a>
-            <a href="https://fdf.bright-fs.com" target="_blank" class="hover:text-brandGold transition flex items-center gap-2">
-                <span class="w-1.5 h-1.5 bg-brandGold rounded-full"></span>
-                Farview Dairy Farms
-            </a>
+        </div>
+
+        <div class="flex flex-col gap-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">
+            <p class="text-brandDark border-b border-slate-100 pb-2">Portals</p>
+            <a href="https://erp.bright-fs.com" class="hover:text-brandGold">Management Portal</a>
+            <a href="https://fdf.bright-fs.com" class="hover:text-brandGold">Farview Dairy Farms</a>
         </div>
       </div>
     </div>
@@ -293,35 +273,16 @@
   <script>
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
-    const pathTop = document.getElementById('path-top');
-    const pathMid = document.getElementById('path-mid');
-    const pathBot = document.getElementById('path-bot');
-    const links = document.querySelectorAll('.mobile-link');
+    const pTop = document.getElementById('path-top');
+    const pMid = document.getElementById('path-mid');
+    const pBot = document.getElementById('path-bot');
 
-    function toggleMenu() {
-      const isOpen = menu.classList.contains('open');
-      
-      if (isOpen) {
-        menu.classList.remove('open');
-        pathTop.style.transform = 'rotate(0deg) translateY(0px)';
-        pathMid.style.opacity = '1';
-        pathBot.style.transform = 'rotate(0deg) translateY(0px)';
-      } else {
-        menu.classList.add('open');
-        pathTop.style.transform = 'rotate(45deg) translateY(8.5px)';
-        pathMid.style.opacity = '0';
-        pathBot.style.transform = 'rotate(-45deg) translateY(-8.5px)';
-      }
-    }
-
-    btn.addEventListener('click', toggleMenu);
-
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        if (menu.classList.contains('open')) toggleMenu();
-      });
+    btn.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      pTop.style.transform = isOpen ? 'rotate(45deg) translateY(8.5px)' : 'rotate(0) translateY(0)';
+      pMid.style.opacity = isOpen ? '0' : '1';
+      pBot.style.transform = isOpen ? 'rotate(-45deg) translateY(-8.5px)' : 'rotate(0) translateY(0)';
     });
   </script>
-
 </body>
 </html>
